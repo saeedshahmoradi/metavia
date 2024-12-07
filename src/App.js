@@ -33,6 +33,7 @@ function App() {
       onMouseMove={handleMouseMove}
       style={{ backgroundPosition: `${50 + offset.x}% ${50 + offset.y}%` }}
     >
+      <div className={styles.spaceFiller}></div>
       <main className={styles.main}>
         <FixedArea />
         <section className={styles.variable_area}>
