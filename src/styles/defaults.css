@@ -1,0 +1,12 @@
+body{
+  background-color: var(--vividCyan);
+}
+
+.page_container{
+  overflow: auto;
+  padding: 50px;
+  background-color: var(--darkCharcoal);
+  width: 100%;
+  height: 100%;
+  color: var(--whiteTextColor);
+}

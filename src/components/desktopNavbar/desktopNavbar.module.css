@@ -1,0 +1,21 @@
+.desktopNav {
+  width: 70px;
+}
+
+.desktopNavUl {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  row-gap: 20px;
+  background-color: var(--lightCharcoal);
+  border-radius: 50px;
+  padding: 25px 10px;
+}
+
+.menuIcon {
+  font-size: 30px;
+}
+
+.menuIcon:hover {
+  color: var(--vividCyan);
+}
