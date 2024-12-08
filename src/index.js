@@ -4,6 +4,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/reset.css';
 import './styles/defaults.css';
 import './styles/variables.css';

@@ -4,39 +4,33 @@ import DesktopNavbar from './components/desktopNavbar/DesktopNavbar';
 import routes from './routes';
 import { AnimatePresence, motion } from 'framer-motion';
 import FixedArea from './components/fixedArea/FixedArea';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import MobileOffcanvas from './components/mobileOffCanvas/MobileOffcanvas';
+import { handleMouseMove } from './utils';
+import { GiHamburgerMenu } from "react-icons/gi";
+
+
 
 function App() {
 
   const location = useLocation();
   const router = useRoutes(routes);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (event) => {
-    const { clientX, clientY, currentTarget } = event;
-
-    const { width, height, left, top } = currentTarget.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-
-    const offsetX = (clientX - centerX) / (width / 2);
-    const offsetY = (clientY - centerY) / (height / 2);
-
-    setOffset({
-      x: offsetX * 10,
-      y: offsetY * 10,
-    });
-  };
+  const [isShowingOffcanvas, setisShowingOffcanvas] = useState(false);
 
   return (
     <div className={styles.container}
-      onMouseMove={handleMouseMove}
+      onMouseMove={(event) => handleMouseMove(event, setOffset)}
       style={{ backgroundPosition: `${50 + offset.x}% ${50 + offset.y}%` }}
     >
       <div className={styles.spaceFiller}></div>
       <main className={styles.main}>
         <FixedArea />
         <section className={styles.variable_area}>
+
+          <GiHamburgerMenu className={styles.hamburger} onClick={() => setisShowingOffcanvas(true)} />
+          <MobileOffcanvas show={isShowingOffcanvas} closeOffcanvas={() => setisShowingOffcanvas(false)} />
+
           <AnimatePresence mode="wait">
             <motion.div className={styles.routerWrapper} key={location.pathname} >
               {router}

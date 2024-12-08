@@ -1,3 +1,7 @@
+.desktopHeader{
+  display: none;
+}
+
 .desktopNav {
   width: 70px;
 }
@@ -46,4 +50,10 @@
 
 .desktopNavUl > li:hover .menuIcon {
   color: var(--secondaryText);
+}
+
+@media (min-width: 992px) {
+  .desktopHeader{
+    display: block;
+  }
 }

@@ -6,15 +6,12 @@ import { GoMail } from "react-icons/go";
 import { BsInfoSquare } from "react-icons/bs";
 import { NavLink } from 'react-router';
 import { memo } from 'react';
+import { activeLinkSpecifier } from '../../utils';
 
 const DesktopNavbar = memo(() => {
 
-  function activeLinkSpecifier(isActive) {
-    return ({ color: isActive ? 'var(--vividCyan)' : 'var(--lightTextColor)' });
-  }
-
   return (
-    <header>
+    <header className={styles.desktopHeader}>
       <nav className={styles.desktopNav}>
         <ul className={styles.desktopNavUl}>
           <li>
