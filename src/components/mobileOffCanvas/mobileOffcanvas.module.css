@@ -15,7 +15,7 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  color: var(--whiteTextColor);
+  color: var(--white);
   background-color: var(--vividCyan);
   align-self: flex-start;
   padding: 5px;
@@ -32,6 +32,7 @@
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
+  /* border: 3px solid var(--muted); */
 }
 
 .desktopNavUl{
@@ -46,7 +47,7 @@
   line-height: 45px;
   height: 45px;
   font-size: 1.2rem;
-  color: var(--whiteTextColor);
+  color: var(--white);
 }
 
 .social {
@@ -63,7 +64,7 @@
   border-radius: 50%;
   padding: 3px;
   transition: 0.5s;
-  color: var(--lightTextColor);
+  color: var(--light);
 }
 
 .social_icon:hover {

@@ -1,21 +1,47 @@
 import { motion } from 'framer-motion';
 import styles from './home.module.css';
+import { useContext } from 'react';
+import AppContext from '../../contexts/AppContext';
+import { AiFillInstagram } from "react-icons/ai";
+import { FaTelegramPlane } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
 
-function Home() {
+
+export default function Home() {
+
+  const { team, fullScreen } = useContext(AppContext);
+
+  const description = 'Website and Application Development'.split('');
 
   return (
-    <motion.div className={`${styles.container} page_container`}
-      initial={{ y: '-100%', scale: 0.5 }}
-      animate={{ y: 0, scale: 1 }}
-      exit={{ y: '-100%', scale: 0.5 }}
-      transition={{ duration: 0.55 }}
-    >
-      <h1 className={styles.groupName}>Dev Group</h1>
-      <strong className={styles.description}>
-        Website and Application Development
-      </strong>
-    </motion.div>
+    <div style={{ perspective: '400px', height: '100%' }}>
+      <motion.div className={`${styles.container} ${fullScreen ? 'fullScreen_page_container' : 'page_container'}`}
+        style={{ transformStyle: 'preserve-3d' }}
+        initial={{ rotateX: -130 }}
+        animate={{ rotateX: 0, transformOrigin: '0 0 0' }}
+        // animate={{ rotateX: [-130, 10, -5, 0], transformOrigin: '0 0 0' }}
+        exit={{ rotateX: 130, transformOrigin: '0 bottom 0' }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
+        {fullScreen && <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />}
+
+        <h1 className={styles.teamName}>{team.name}</h1>
+
+        <strong className='text-center'>
+          {description.map((char, index) =>
+            <span className={styles.descSpan} style={{ animationDelay: `${(index * 0.07) + 1}s` }} key={index + 1}>
+              {char}
+            </span>)}
+        </strong>
+
+        {fullScreen &&
+          <div className={styles.social_container}>
+            <a href={team.instagram} target='_blank' rel='noreferrer noopener'><AiFillInstagram className={styles.social_icon} /></a>
+            <a href={team.telegram} target='_blank' rel='noreferrer noopener'><FaTelegramPlane className={styles.social_icon} /></a>
+            <a href={team.whatsapp} target='_blank' rel='noreferrer noopener'><IoLogoWhatsapp className={styles.social_icon} /></a>
+          </div>
+        }
+      </motion.div>
+    </div>
   )
 }
-
-export default Home;

@@ -1,9 +1,9 @@
 function activeLinkSpecifier(isActive) {
-  return ({ color: isActive ? 'var(--vividCyan)' : 'var(--lightTextColor)' });
+  return ({ color: isActive ? 'var(--vividCyan)' : 'var(--light)' });
 }
 
 
-function handleMouseMove(event, settingOffset) {
+function handleMouseMove(event, /*settingOffset*/) {
   if (window.innerWidth >= 768) {
     const { clientX, clientY, currentTarget } = event;
 
@@ -14,10 +14,12 @@ function handleMouseMove(event, settingOffset) {
     const offsetX = (clientX - centerX) / (width / 2);
     const offsetY = (clientY - centerY) / (height / 2);
 
-    settingOffset({
-      x: offsetX * 10,
-      y: offsetY * 10,
-    });
+    // settingOffset({
+    //   x: offsetX * 10,
+    //   y: offsetY * 10,
+    // });
+
+    currentTarget.style.backgroundPosition = `${(offsetX * 10) + 50}% ${(offsetY * 10) + 50}%` ;
   }
 };
 

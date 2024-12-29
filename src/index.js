@@ -6,16 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/reset.css';
+import './styles/fonts.css';
 import './styles/defaults.css';
 import './styles/variables.css';
+import './styles/custom.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

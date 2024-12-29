@@ -1,0 +1,149 @@
+import { motion } from 'framer-motion';
+import styles from './contact.module.css';
+import PageTitle from '../../components/pageTitle/PageTitle';
+import { useFormik } from 'formik';
+import { MdPhone } from "react-icons/md";
+import { IoIosMail } from "react-icons/io";
+import { FaTelegramPlane } from "react-icons/fa";
+import axiosRequest from '../../services/axios/axiosRequest';
+import { Toast, ToastContainer } from 'react-bootstrap';
+import { email_validator, full_name_validator, message_validator, phone_validator, subject_validator } from '../../forms/formValidators';
+import { useState } from 'react';
+
+
+export default function Contact() {
+
+  const [isShowingSuccessToast, setIsShowingSuccessToast] = useState(false);
+  const [isShowingFailureToast, setIsShowingFailureToast] = useState(false);
+
+  function handleContactFormValidation(values) {
+    const errors = {};
+    full_name_validator(values, errors);
+    email_validator(values, errors);
+    phone_validator(values, errors);
+    subject_validator(values, errors);
+    message_validator(values, errors);
+    return errors;
+  }
+
+  function handleContactFormSubmition(values, resetForm) {
+    const contactController = new AbortController();
+    axiosRequest.post('/contact/', values, { signal: contactController.signal })
+      .then(res => {
+        console.log(res);
+        if (res.status === 201) {
+          setIsShowingSuccessToast(true);
+          resetForm();
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        setIsShowingFailureToast(true);
+      });
+  }
+
+  const contactForm = useFormik({
+    initialValues: { full_name: '', email: '', phone: '', subject: '', message: '' },
+    validate: (values) => handleContactFormValidation(values),
+    onSubmit: (values, { resetForm }) => handleContactFormSubmition(values, resetForm),
+  });
+
+
+  return (
+    <div style={{ height: '100%' }}>
+      <motion.div className={`${styles.container} page_container`}
+        style={{ transformOrigin: 'right 50%' }}
+        initial={{ x: '-100%', scaleY: 0.7 }}
+        animate={{ x: ['-100%', '0', '0', '0', '0'], scaleX: [1, 1, 0.7, 0.9, 1], scaleY: [0.7, 0.7, 1, 1, 1] }}
+        exit={{ transformOrigin: 'left 50%', x: ['0', '0', '0', '0', '100%'], scaleX: [1, 0.8, 0.7, 1, 1], scaleY: [1, 1.04, 1.08, 0.7, 0.7] }}
+        transition={{ duration: 0.9, ease: 'linear' }}
+      >
+        <PageTitle title='Contact Us' />
+        <div className={styles.contact_container}>
+
+          <section className={styles.contactWays_container}>
+            <div className={styles.contactWay_container}>
+              <div className={styles.contactIcon_container}><MdPhone className='fs-4 textDarkCharcoal' /></div>
+              <p className='mt-2 textGold'>Phone</p>
+              <a className='desc' href='tel:+989003456789'>+989003456789</a>
+            </div>
+            <div className={styles.contactWay_container}>
+              <div className={styles.contactIcon_container}><IoIosMail className='fs-3 textDarkCharcoal' /></div>
+              <p className='mt-2 textGold'>Email</p>
+              <a className='desc' href='mailto:someone@example.com'>someone@example.com</a>
+            </div>
+            <div className={styles.contactWay_container}>
+              <div className={styles.contactIcon_container}><FaTelegramPlane className='fs-3 textDarkCharcoal' /></div>
+              <p className='mt-2 textGold'>Telegram</p>
+              <a className='desc' href='https://telegram.org' target='_blank' rel="noreferrer noopener">@telegramID</a>
+            </div>
+          </section>
+
+          <p className='h5 text-center mt-5 mb-3 textGold fw-bold'>Get in touch with us</p>
+          <form className={styles.contact_form} onSubmit={contactForm.handleSubmit}>
+
+            <div className='d-flex flex-column flex-sm-row gap-4 w-100'>
+              <div className='w-100'>
+                <input className={styles.input} name='full_name' placeholder='Full name'
+                  value={contactForm.values.full_name}
+                  onChange={contactForm.handleChange}
+                  onBlur={contactForm.handleBlur} />
+                <p className={styles.errorMessage}>{contactForm.errors.full_name && contactForm.touched.full_name && contactForm.errors.full_name}</p>
+              </div>
+
+              <div className='w-100'>
+                <input className={styles.input} name='email' placeholder='Email'
+                  value={contactForm.values.email}
+                  onChange={contactForm.handleChange}
+                  onBlur={contactForm.handleBlur} />
+                <p className={styles.errorMessage}>{contactForm.errors.email && contactForm.touched.email && contactForm.errors.email}</p>
+              </div>
+            </div>
+
+            <div className='d-flex flex-column flex-sm-row gap-4 w-100'>
+              <div className='w-100'>
+                <input className={styles.input} name='phone' placeholder='Phone Number'
+                  value={contactForm.values.phone}
+                  onChange={contactForm.handleChange}
+                  onBlur={contactForm.handleBlur} />
+                <p className={styles.errorMessage}>{contactForm.errors.phone && contactForm.touched.phone && contactForm.errors.phone}</p>
+              </div>
+
+              <div className='w-100'>
+                <input className={styles.input} name='subject' placeholder='Subject'
+                  value={contactForm.values.subject}
+                  onChange={contactForm.handleChange}
+                  onBlur={contactForm.handleBlur} />
+                <p className={styles.errorMessage}>{contactForm.errors.subject && contactForm.touched.subject && contactForm.errors.subject}</p>
+              </div>
+            </div>
+
+            <div className='w-100'>
+              <textarea className={styles.textarea} name='message' placeholder='Message'
+                value={contactForm.values.message}
+                onChange={contactForm.handleChange}
+                onBlur={contactForm.handleBlur} />
+              <p className={styles.errorMessage}>{contactForm.errors.message && contactForm.touched.message && contactForm.errors.message}</p>
+            </div>
+
+            <button type='submit' className={styles.submit}>Send Message</button>
+
+          </form>
+
+        </div>
+
+        <ToastContainer className="p-3" position={window.innerWidth < 576 ? "top-center" : 'middle-center'} style={{ zIndex: 4 }}>
+          <Toast className='bg-success text-light desc' show={isShowingSuccessToast} autohide delay={6000} onClose={() => setIsShowingSuccessToast(false)}>
+            <Toast.Body>Message Sent successfully</Toast.Body>
+          </Toast>
+
+          <Toast className='bg-danger text-light desc' show={isShowingFailureToast} autohide delay={6000} onClose={() => setIsShowingFailureToast(false)}>
+            <Toast.Body>Failed to send Message! Please Try again</Toast.Body>
+          </Toast>
+        </ToastContainer>
+
+      </motion.div>
+
+    </div>
+  )
+}

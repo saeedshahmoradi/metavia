@@ -1,0 +1,47 @@
+.blogs_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100%);
+  gap: 50px 0;
+  padding-top: 10px;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.card:hover .image{
+  scale: 1.04;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 60px;
+  line-height: 20px;
+}
+
+@media (min-width: 450px) {
+  .blogs_container {
+    grid-template-columns: repeat(auto-fit, 45%);
+    gap: 50px 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .blogs_container {
+    grid-template-columns: repeat(auto-fit, 30%);
+    gap: 50px 5%;
+  }
+}

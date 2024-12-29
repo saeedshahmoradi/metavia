@@ -1,0 +1,202 @@
+.contact_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* START Contact Info Section */
+.contactWays_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 5%;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.contactWay_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 30%;
+}
+
+.contactIcon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--gold);
+}
+
+/* START Contact Form Section */
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem 44px;
+  width: 100%;
+}
+
+.contact_form ::placeholder {
+  color: rgb(103, 102, 102);
+  font-size: 1rem;
+}
+
+.inputs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.input {
+  height: 50px;
+  padding: 0 20px;
+}
+
+.countrySelect {
+  height: 50px;
+  padding: 0 20px !important;
+  /* font-size: 1.2rem; */
+  background-color: #141414 !important;
+  border: 1px solid var(--muted) !important;
+  /* outline: 5px solid var(--darkCharcoal) !important; */
+  width: 100%;
+  border-radius: 4px !important;
+}
+
+.phoneWrapper {
+  display: flex;
+  background-color: #141414;
+  border: 1px solid var(--muted);
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.countryCodeInput,
+.phoneNumberInput {
+  height: 50px;
+  background-color: #141414;
+  border: none;
+  outline: none;
+  color: var(--light);
+}
+
+.countryCodeInput {
+  width: 25%;
+  padding: 0 0 0 20px;
+  font-size: 1rem;
+  border-right: 1px solid var(--lightCharcoal);
+}
+
+.phoneNumberInput {
+  width: 75%;
+  font-size: 1.2rem;
+  padding: 0 20px 0 20px;
+}
+
+.textArea_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.textArea_wrapper {
+  width: 100%;
+  height: calc(100% - 94px);
+}
+
+.textarea {
+  padding: 10px 20px;
+  resize: vertical;
+  min-height: 150px;
+}
+
+.input,
+.textarea {
+  font-size: 1.2rem;
+  background-color: #141414;
+  border: 1px solid var(--muted);
+  outline: none;
+  color: var(--light);
+  width: 100%;
+  border-radius: 4px;
+}
+
+.input:focus,
+.textarea:focus,
+.countryCodeInput:focus,
+.phoneNumberInput:focus {
+  background-color: #303030;
+  border-color: var(--light);
+}
+
+.errorMessage {
+  color: #f94869;
+  font-size: 0.8rem;
+  font-weight: 400;
+  height: 15px;
+  margin-top: 5px;
+}
+
+.submit {
+  width: 250px;
+  height: 50px;
+  background-color: var(--gold);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: 0.15s;
+  border: none;
+}
+
+.submit:hover {
+  background-color: var(--darkGold);
+}
+
+.submit:active {
+  background-color: var(--darkerGolden);
+}
+
+@media (min-width: 576px) {
+  .contactWays_container {
+    flex-direction: row;
+  }
+
+  .contact_form {
+    flex-direction: row;
+  }
+
+  .inputs_container {
+    width: 50%;
+  }
+
+  .textArea_container {
+    width: 50%;
+    align-items: stretch;
+  }
+
+  .textarea {
+    min-height: calc(100% - 15px);
+  }
+
+  .submit {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .contactWay_container {
+    width: 20%;
+  }
+}

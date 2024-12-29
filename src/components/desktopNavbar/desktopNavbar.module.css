@@ -20,11 +20,23 @@
   font-size: 30px;
 }
 
+.fullScreenIcon{
+  width: 36px;
+  height: 36px;
+  color: var(--light);
+}
+
 .desktopNavUl > li {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 100%;
+}
+
+.desktopNavUl > li > a{
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -35,12 +47,13 @@
   top: 0;
   transition: 0.5s;
   background-color: var(--lightCharcoal);
-  color: var(--whiteTextColor);
+  color: var(--white);
   white-space: nowrap;
   height: 30px;
   line-height: 30px;
   padding: 0 10px;
   border-radius: 25px;
+  z-index: 4;
 }
 
 .desktopNavUl > li:hover .menuLabel {
@@ -49,7 +62,7 @@
 }
 
 .desktopNavUl > li:hover .menuIcon {
-  color: var(--secondaryText);
+  color: var(--vividCyan);
 }
 
 @media (min-width: 992px) {

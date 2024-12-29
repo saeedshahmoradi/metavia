@@ -1,0 +1,35 @@
+.container {
+  padding: 0 !important;
+}
+
+.notFound_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url("../../../public/assets/images/main_bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.backToHomeBtn{
+  background-color: var(--gold) !important;
+  margin-top: 3rem;
+  width: 200px;
+  height: 45px;
+  color: #000 !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+.backToHomeBtn:hover{
+  background-color: var(--darkGold) !important;
+}
+
+.backToHomeBtn:active{
+  background-color: var(--darkerGold) !important;
+}

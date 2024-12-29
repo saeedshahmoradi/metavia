@@ -1,10 +1,15 @@
 :root{
   --vividCyan: #04b4e0;
+
+  --gold: #f1b969;
+  --darkGold: #c59654;
+  --darkerGold: #be8433;
+
   --lightCharcoal: #444444;
+  --midCharcoal: #333333;
   --darkCharcoal: #222222;
 
-  --whiteTextColor: #fff;
-  --lightTextColor: #ccc;
-  --mutedTextColor: #999999;
-  --secondaryText: #04b4e0;
+  --white: #fff;
+  --light: #ccc;
+  --muted: #999999;
 }

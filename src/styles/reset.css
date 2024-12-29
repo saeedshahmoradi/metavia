@@ -101,10 +101,6 @@ section {
   display: block;
 }
 
-body {
-  line-height: 1;
-}
-
 ol,
 ul {
   list-style: none;
@@ -130,4 +126,9 @@ table {
 
 a{
   text-decoration: none;
+  color: unset;
+}
+
+strong{
+  font-weight: 400;
 }

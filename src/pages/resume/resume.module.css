@@ -1,0 +1,182 @@
+/* START Profile Section */
+.profile {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100%);
+  row-gap: 20px;
+  border: 2px solid var(--muted);
+  border-radius: 15px;
+  /* padding: 60px 20px 20px; */
+  position: relative;
+  margin-top: 30px;
+}
+
+.profilePhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--muted);
+}
+
+.fullName {
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.role {
+  font-size: 1rem;
+  color: var(--light);
+  font-weight: 400;
+}
+
+.social_icon {
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.social_icon:hover {
+  color: var(--vividCyan);
+}
+
+.memberDetail {
+  display: flex;
+  gap: 10px;
+}
+
+.profileTitle {
+  color: var(--vividCyan);
+  font-weight: 700;
+  width: 50px;
+}
+
+.profileValue {
+  color: var(--light);
+  font-weight: 400;
+}
+/* END Profile Section */
+
+/* START Bisection Section*/
+.bisection {
+  display: flex;
+  flex-direction: column;
+  column-gap: 5%;
+}
+
+.bisection > section:first-child {
+  flex: 1.5;
+}
+
+.bisection > section:last-child {
+  flex: 1;
+}
+
+.abouteMe_wrapper {
+  border-left: 2px solid var(--vividCyan);
+  padding-left: 10px;
+}
+/* END Bisection Section */
+
+/* START Portfolio Section */
+.portfolio_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100%);
+  row-gap: 30px;
+}
+
+.portfolioPhoto_wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+}
+
+.visitButton {
+  border: 1px solid #fff;
+  border-radius: 25px;
+  background-color: #00000000;
+  padding: 5px 10px;
+  position: absolute;
+  top: 15%;
+  left: 0px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.portfolioPhoto_wrapper:hover .visitButton {
+  left: 10%;
+  background-color: #00000050;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+}
+
+.portfolioPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.portfolioPhoto:hover {
+  scale: 1.1;
+}
+/* START Portfolio Section */
+
+/* Start Certificates Section */
+.certificates_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100%);
+  row-gap: 30px;
+}
+
+.certificate {
+  display: flex;
+  padding: 2px;
+  background-color: var(--lightCharcoal);
+  min-height: 150px;
+  border-radius: 10px;
+}
+
+.certificateInstitution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 3px;
+}
+
+.certificateName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkCharcoal);
+  color: var(--light);
+  flex: 2;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+  .profile {
+    grid-template-columns: repeat(auto-fit, 45%);
+    gap: 20px;
+  }
+
+  .bisection {
+    flex-direction: row;
+  }
+
+  .portfolio_container,
+  .certificates_container {
+    grid-template-columns: repeat(auto-fit, 45%);
+    gap: 30px 10%;
+  }
+}
