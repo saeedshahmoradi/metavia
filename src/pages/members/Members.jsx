@@ -36,16 +36,16 @@ export default function Members() {
             <PageTitle title='Members' />
 
             <div className={styles.members_container}>
-              {members.map(member =>
-                <Link to={`/resume/${member.id}`} className={styles.card} key={member.id}>
-                  <img className={styles.photo} src={member.photo ?? '/assets/images/noProfile.gif'} alt={member.full_name} />
-                  <h2 className={`${styles.fullName} h5`}>{member.full_name}</h2>
-                  <h3 className={styles.role}>{member.role}</h3>
-                  <div className='d-flex gap-2 align-items-center desk mt-3'>
-                    {member.phone && <IoCallSharp className='fs-6' />}
-                    <p>{member.phone}</p>
-                  </div>
-                </Link>
+              {members.map(({ id, slug, photo, full_name, role, phone })=>
+              <Link to={`/resume/${slug}`} className={styles.card} key={id}>
+                <img className={styles.photo} src={photo ?? '/assets/images/noProfile.gif'} alt={full_name} />
+                <h2 className={`${styles.fullName} h5`}>{full_name}</h2>
+                <h3 className={styles.role}>{role}</h3>
+                <div className='d-flex gap-2 align-items-center desk mt-3'>
+                  {phone && <IoCallSharp className='fs-6' />}
+                  <p>{phone}</p>
+                </div>
+              </Link>
               )}
             </div>
           </>

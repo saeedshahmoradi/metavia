@@ -20,7 +20,7 @@ export default function Resume() {
 
   useEffect(() => {
     const resumeController = new AbortController();
-    axiosRequest.get(`/members/${params.id}/`, { signal: resumeController.signal })
+    axiosRequest.get(`/members/${params.slug}/`, { signal: resumeController.signal })
       .then(res => setResume(res.data))
       .catch(err => { if (err?.response?.status === 404) navigateTo('/'); })
       .finally(() => setIsLoading(false));

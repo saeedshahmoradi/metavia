@@ -48,11 +48,12 @@
   font-size: 2rem;
   border-radius: 50%;
   padding: 3px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .social_icon:hover {
-  background-color: gray;
+  /* background-color: gray; */
+  color: var(--gold);
 }
 
 @media (min-width: 992px) {

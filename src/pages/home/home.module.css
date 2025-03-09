@@ -25,6 +25,10 @@
   transition: 0.3s;
 }
 
+/* .logo:hover {
+  box-shadow: 0 0 10px 0 #fff;
+} */
+
 .teamName {
   font-size: 3rem;
   text-align: center;
@@ -52,9 +56,10 @@
   font-size: 2rem;
   border-radius: 50%;
   padding: 3px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .social_icon:hover {
-  background-color: gray;
+  /* background-color: gray; */
+  color: var(--gold);
 }

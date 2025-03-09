@@ -25,6 +25,8 @@ Remaning:
 - SEO
 - Icons & Favicon
 - uncomment <React.StrictMode>
+سلام ب api رزوممون اسلاگ و لینک pdf اضاف کردم ک کسی خواست لینک pdfی رزومشو هم بزاره
+
 
 -----------------------------
 
