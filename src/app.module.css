@@ -81,7 +81,7 @@
   /* width: 70px; */
   height: 100%;
   /* START TEST */
-  transition: all 1s;
+  /* transition: all 0.5s; */
   /* END TEST */
 }
 

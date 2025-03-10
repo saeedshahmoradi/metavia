@@ -1,9 +1,17 @@
-.desktopHeader{
+.desktopHeader {
   display: none;
+
+  /* START TEST */
+  perspective: 800px;
+  /* END TEST */
 }
 
 .desktopNav {
-  width: 70px;
+  /* width: 70px; */
+
+  /* Start Test */
+  transform-style: preserve-3d;
+  /* END Test */
 }
 
 .desktopNavUl {
@@ -20,7 +28,7 @@
   font-size: 30px;
 }
 
-.fullScreenIcon{
+.fullScreenIcon {
   width: 36px;
   height: 36px;
   color: var(--light);
@@ -34,7 +42,7 @@
   width: 100%;
 }
 
-.desktopNavUl > li > a{
+.desktopNavUl > li > a {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -66,7 +74,7 @@
 }
 
 @media (min-width: 992px) {
-  .desktopHeader{
+  .desktopHeader {
     display: block;
   }
 }

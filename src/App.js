@@ -90,10 +90,10 @@ export default function App() {
         <div className={fullScreen ? styles.fullScreenContainer : styles.container} onMouseMove={(event) => handleMouseMove(event)}>
 
           {/* {!fullScreen && <div className={styles.spaceFiller}></div>} */}
-          {<div className={styles.spaceFiller} style={fullScreen ? {width: 0} : {width: '70px'}}></div>}
+          {<div className={styles.spaceFiller} style={fullScreen ? { width: 0, transition: '0.5s 0.5s' } : { width: '70px', transition: '1s' }}></div>}
 
-          <main className={styles.main} 
-          style={fullScreen ? {width: '100%', height: '100%', alignItems:'flex-start', borderRadius: 0} : {}}>
+          <main className={styles.main}
+            style={fullScreen ? { width: '100%', height: '100%', alignItems: 'flex-start', borderRadius: 0 } : {}}>
 
             {fullScreen ? <FullScreenNavbar /> : <FixedArea />}
             {/* <FixedArea /> */}
@@ -113,7 +113,8 @@ export default function App() {
             </section>
           </main>
 
-          {!fullScreen && <DesktopNavbar />}
+          <DesktopNavbar />
+          {/* {!fullScreen && <DesktopNavbar />} */}
           {/* {fullScreen ? <FullScreenNavbar /> : <DesktopNavbar />} */}
         </div>
       }

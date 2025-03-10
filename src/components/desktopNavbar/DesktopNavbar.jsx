@@ -5,22 +5,25 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { GoMail } from "react-icons/go";
 import { GrBlog } from "react-icons/gr";
 import { NavLink } from 'react-router';
-import { memo, useContext } from 'react';
+import { useContext } from 'react';
 import { activeLinkSpecifier } from '../../utils';
 import { RxEnterFullScreen } from 'react-icons/rx';
 import { RxExitFullScreen } from "react-icons/rx";
 import AppContext from '../../contexts/AppContext';
 
-const DesktopNavbar = memo(() => {
+export default function DesktopNavbar() {
 
   const appContext = useContext(AppContext);
 
-  console.log(appContext.handleFullScreenMode);
-  console.log(appContext.fullScreen);
-
   return (
     <header className={styles.desktopHeader}>
-      <nav className={styles.desktopNav}>
+      <nav className={styles.desktopNav}
+        // START TEST
+        style={appContext.fullScreen ?
+          { transform: 'rotateY(90deg)', width: 0,  transition: 'width 0.5s 0.5s, transform 0.3s' }
+          :
+          { transform: 'rotateY(0deg)', width: '70px',  transition: 'width 1s, transform 0.5s 0.5s' }}>
+        {/* END TEST */}
         <ul className={styles.desktopNavUl}>
           <li>
             <NavLink to="/" style={({ isActive }) => activeLinkSpecifier(isActive)}>
@@ -74,6 +77,4 @@ const DesktopNavbar = memo(() => {
       </nav>
     </header>
   )
-})
-
-export default DesktopNavbar
+}
