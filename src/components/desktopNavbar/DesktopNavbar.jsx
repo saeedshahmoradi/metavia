@@ -59,7 +59,7 @@ const DesktopNavbar = memo(() => {
               {appContext.fullScreen ?
                 <>
                   <RxExitFullScreen className={`${styles.menuIcon} ${styles.fullScreenIcon}`} />
-                  <p className={styles.menuLabel}>Exit Full Screen</p>
+                  {/* <p className={styles.menuLabel}>Exit Full Screen</p> */}
                 </>
                 :
                 <>

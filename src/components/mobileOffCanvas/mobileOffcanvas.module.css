@@ -68,5 +68,6 @@
 }
 
 .social_icon:hover {
-  background-color: gray;
+  /* background-color: gray; */
+  color: var(--gold);
 }

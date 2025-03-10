@@ -89,7 +89,8 @@ export default function App() {
 
         <div className={fullScreen ? styles.fullScreenContainer : styles.container} onMouseMove={(event) => handleMouseMove(event)}>
 
-          {!fullScreen && <div className={styles.spaceFiller}></div>}
+          {/* {!fullScreen && <div className={styles.spaceFiller}></div>} */}
+          {<div className={styles.spaceFiller} style={fullScreen ? {width: 0} : {width: '70px'}}></div>}
 
           <main className={styles.main} 
           style={fullScreen ? {width: '100%', height: '100%', alignItems:'flex-start', borderRadius: 0} : {}}>

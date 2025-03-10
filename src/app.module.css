@@ -17,8 +17,11 @@
   width: 100%;
   height: 100vh;
   opacity: 0;
-  background-color: var(--darkCharcoal);
   animation: containerAnim 1s forwards ease-out;
+  background-color: var(--darkCharcoal);
+  /* START TEST */
+  transition: all 1s;
+  /* END TEST */
 }
 
 .fullScreenContainer {
@@ -26,7 +29,10 @@
   height: 100vh;
   opacity: 0;
   animation: containerAnim 1s forwards ease-out;
-  background-color: var(--darkCharcoal) !important;
+  /* background-color: var(--darkCharcoal) !important; */
+  /* START TEST */
+  transition: all 1s;
+  /* END TEST */
 }
 
 .main {
@@ -36,6 +42,9 @@
   overflow: hidden;
   background-color: var(--lightCharcoal);
   height: 100%;
+  /* START TEST */
+  transition: all 1s;
+  /* END TEST */
 }
 
 .animatedArea {
@@ -43,6 +52,9 @@
   height: 100%;
   overflow: hidden;
   position: relative;
+  /* START TEST */
+  transition: all 1s;
+  /* END TEST */
 }
 
 .routerWrapper {
@@ -66,8 +78,11 @@
 
 .spaceFiller {
   display: none;
-  width: 70px;
+  /* width: 70px; */
   height: 100%;
+  /* START TEST */
+  transition: all 1s;
+  /* END TEST */
 }
 
 @media (min-width: 768px) {
