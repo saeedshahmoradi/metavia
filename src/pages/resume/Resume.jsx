@@ -123,9 +123,10 @@ export default function Resume() {
                   <a href={project.link} target='_blank' rel="noreferrer noopener" key={project.id}>
                     <div className={styles.portfolioPhoto_wrapper}>
                       <img className={styles.portfolioPhoto} src={project.photo} alt={project.name} />
-                      <div className={styles.visitButton}>View Project</div>
+                      {/* <div className={styles.visitButton}>View Project</div> */}
+                      <p className={`${styles.visitButton} cardTitle text-truncate mt-2`}>{project.name}</p>
                     </div>
-                    <p className='cardTitle text-truncate w-100 mt-2'>{project.name}</p>
+                    {/* <p className='cardTitle text-truncate w-100 mt-2'>{project.name}</p> */}
                   </a>
                 )}
               </section>

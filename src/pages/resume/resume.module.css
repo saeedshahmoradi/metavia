@@ -91,7 +91,10 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3/2;
+  /* aspect-ratio: 3/2; */
+  aspect-ratio: 1.7/1;
+  /* border: 3px solid var(--lightCharcoal); */
+  border-radius: 7px;
 }
 
 .visitButton {
@@ -177,6 +180,18 @@
   .portfolio_container,
   .certificates_container {
     grid-template-columns: repeat(auto-fit, 45%);
+    gap: 30px 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio_container{
+    grid-template-columns: repeat(auto-fit, 30%);
+    gap: 30px 5%;
+  }
+
+  .certificates_container {
+    grid-template-columns: repeat(auto-fit, 40%);
     gap: 30px 10%;
   }
 }

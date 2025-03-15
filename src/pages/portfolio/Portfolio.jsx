@@ -90,7 +90,7 @@ export default function Portfolio() {
                     // exit={{ opacity: 0, scale: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <a className={styles.portfolioCard} href={link} key={id} target='_blank' rel="noreferrer noopener">
+                    <a /*className={styles.portfolioCard}*/ href={link} target='_blank' rel="noreferrer noopener">
                       <div className={styles.portfolioPhoto_wrapper}>
                         <img className={styles.portfolioPhoto} src={photo} alt={name} />
                         <div className={styles.visitButton}>View Project</div>

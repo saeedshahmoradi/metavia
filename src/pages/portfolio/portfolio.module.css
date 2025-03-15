@@ -19,7 +19,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 7px;
-  aspect-ratio: 2/1;
+  /* aspect-ratio: 2/1; */
+  aspect-ratio: 1.7/1;
 }
 
 .portfolioPhoto_wrapper:hover .visitButton {
