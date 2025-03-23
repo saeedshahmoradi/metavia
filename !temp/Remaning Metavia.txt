@@ -43,7 +43,9 @@ Remaning:
  - سلام ب api رزوممون اسلاگ و لینک pdf اضاف کردم ک کسی خواست لینک pdfی رزومشو هم بزاره
 * - add latitude and longitude to MAP's Marker Popup
  - (توسعه و طراحی: Metavia) در footer و Offcanvas
+ - Link of social media icons
  - Backend: remove "Access-control-allow-origin": "*"
+ - Logo
 
 _____________________________________________________
 
