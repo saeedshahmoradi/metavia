@@ -15,31 +15,8 @@ const routes = [
   {path: '/portfolio', element: <Portfolio />},
   {path: '/contact', element: <Contact />},
   {path: '/blogs', element: <Blogs />},
-  {path: '/blog/:id', element: <Blog />},
+  {path: '/blog/:slug', element: <Blog />},
   {path: '*', element: <NotFound />},
 ];
 
 export default routes;
-
-
-// import { lazy } from 'react';
-
-// const Home = lazy(() => import('./pages/home/Home'));
-// const Members = lazy(() => import('./pages/members/Members'));
-// const Profile = lazy(() => import('./pages/memberProfile/MemberProfile'));
-// const Portfolio = lazy(() => import('./pages/portfolio/Portfolio'));
-// const Contact = lazy(() => import('./pages/contact/Contact'));
-// const About = lazy(() => import('./pages/blogs/Blogs'));
-// const NotFound = lazy(() => import('./pages/notFound/NotFound'));
-
-// const routes = [
-//   { path: '/', element: <Home /> },
-//   { path: '/members', element: <Members /> },
-//   { path: '/Profile/:id', element: <Profile /> },
-//   { path: '/portfolio', element: <Portfolio /> },
-//   { path: '/contact', element: <Contact /> },
-//   { path: '/about', element: <About /> },
-//   { path: '*', element: <NotFound /> },
-// ];
-
-// export default routes;

@@ -12,7 +12,7 @@ import axiosRequest from './services/axios/axiosRequest';
 import AppContext from './contexts/AppContext';
 import Loading from './components/loading/Loading';
 import FullScreenNavbar from './components/fullScreenNavbar/FullScreenNavbar';
-// import Spinner from 'react-bootstrap/Spinner';
+import { Helmet } from 'react-helmet-async';
 
 
 export default function App() {
@@ -58,45 +58,23 @@ export default function App() {
   }
 
   return (
-    // <AppContext.Provider value={globalValues}>
-    //   {isLoading ?
-    //     <Loading className='bgDarkCharcoal' />
-    //     :
-    //     <div className={styles.container} onMouseMove={(event) => handleMouseMove(event)}>
-    //       <div className={styles.spaceFiller}></div>
-    //       <main className={styles.main}>
-    //         <FixedArea />
-    //         <section className={styles.animatedArea}>
-    //           <GiHamburgerMenu className={styles.hamburger} onClick={() => setisShowingOffcanvas(true)} />
-    //           <MobileOffcanvas show={isShowingOffcanvas} closeOffcanvas={() => setisShowingOffcanvas(false)} />
-    //           {/* <Suspense fallback={<Spinner animation='grow' style={{ position: 'absolute', top: 'calc(50% - 50px)', left: 'calc(50% - 50px)', width: '100px', height: '100px', backgroundColor: 'var(--vividCyan)' }} />}> */}
-    //           <AnimatePresence mode="wait">
-    //             <motion.div className={styles.routerWrapper} key={location.pathname}>
-    //               {router}
-    //             </motion.div>
-    //           </AnimatePresence>
-    //           {/* </Suspense> */}
-    //         </section>
-    //       </main>
-    //       <DesktopNavbar />
-    //     </div>
-    //   }
-    // </AppContext.Provider >
-
-
     <AppContext.Provider value={globalValues}>
+      <Helmet>
+        <title>Metavia</title>
+        <meta name="description" content="We craft stunning, high-performance websites, mobile apps, and custom softwares. With a focus on cutting-edge UI/UX design, our team transforms ideas into powerful digital experiences. Let’s build something extraordinary together." />
+      </Helmet>
+
+
       {isLoading ? <Loading className='bgDarkCharcoal' /> :
 
         <div className={fullScreen ? styles.fullScreenContainer : styles.container} onMouseMove={(event) => handleMouseMove(event)}>
 
-          {/* {!fullScreen && <div className={styles.spaceFiller}></div>} */}
           {<div className={styles.spaceFiller} style={fullScreen ? { width: 0, transition: '0.5s 0.5s' } : { width: '70px', transition: '1s' }}></div>}
 
           <main className={styles.main}
             style={fullScreen ? { width: '100%', height: '100%', alignItems: 'flex-start', borderRadius: 0 } : {}}>
 
             {fullScreen ? <FullScreenNavbar /> : <FixedArea />}
-            {/* <FixedArea /> */}
 
             <section className={styles.animatedArea} style={fullScreen ? { width: '100%', height: '100%', borderRadius: 0 } : {}}>
 
@@ -114,8 +92,7 @@ export default function App() {
           </main>
 
           <DesktopNavbar />
-          {/* {!fullScreen && <DesktopNavbar />} */}
-          {/* {fullScreen ? <FullScreenNavbar /> : <DesktopNavbar />} */}
+          
         </div>
       }
     </AppContext.Provider >

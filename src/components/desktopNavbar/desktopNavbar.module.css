@@ -1,17 +1,10 @@
 .desktopHeader {
   display: none;
-
-  /* START TEST */
   perspective: 800px;
-  /* END TEST */
 }
 
 .desktopNav {
-  /* width: 70px; */
-
-  /* Start Test */
   transform-style: preserve-3d;
-  /* END Test */
 }
 
 .desktopNavUl {

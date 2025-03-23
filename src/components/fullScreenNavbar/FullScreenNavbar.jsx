@@ -17,7 +17,7 @@ const FullScreenNavbar = memo(() => {
 
   return (
     <header className='d-none d-lg-block'>
-      <nav className={styles.fullScreenNav}>
+      <nav>
         <ul className={styles.fullScreenNavUl}>
           <li>
             <NavLink to="/" style={({ isActive }) => activeLinkSpecifier(isActive)}>

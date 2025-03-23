@@ -18,12 +18,10 @@ export default function DesktopNavbar() {
   return (
     <header className={styles.desktopHeader}>
       <nav className={styles.desktopNav}
-        // START TEST
         style={appContext.fullScreen ?
-          { transform: 'rotateY(90deg)', width: 0,  transition: 'width 0.5s 0.5s, transform 0.3s' }
+          { transform: 'rotateY(90deg)', width: 0, transition: 'width 0.5s 0.5s, transform 0.3s' }
           :
-          { transform: 'rotateY(0deg)', width: '70px',  transition: 'width 1s, transform 0.5s 0.5s' }}>
-        {/* END TEST */}
+          { transform: 'rotateY(0deg)', width: '70px', transition: 'width 1s, transform 0.5s 0.5s' }}>
         <ul className={styles.desktopNavUl}>
           <li>
             <NavLink to="/" style={({ isActive }) => activeLinkSpecifier(isActive)}>
@@ -57,13 +55,9 @@ export default function DesktopNavbar() {
           </li>
 
           <li>
-            {/* <NavLink to="#" onClick={() => appContext.handleScreenSizeMode()}> */}
             <NavLink onClick={() => appContext.handleFullScreenMode(prev => !prev)}>
               {appContext.fullScreen ?
-                <>
-                  <RxExitFullScreen className={`${styles.menuIcon} ${styles.fullScreenIcon}`} />
-                  {/* <p className={styles.menuLabel}>Exit Full Screen</p> */}
-                </>
+                <RxExitFullScreen className={`${styles.menuIcon} ${styles.fullScreenIcon}`} />
                 :
                 <>
                   <RxEnterFullScreen className={`${styles.menuIcon} ${styles.fullScreenIcon}`} />

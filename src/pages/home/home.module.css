@@ -19,23 +19,16 @@
   aspect-ratio: 1/1;
   width: 200px;
   object-fit: cover;
-  /* border: 3px solid var(--white); */
   box-shadow: 0 0 20px -10px #fff;
   border-radius: 50%;
   transition: 0.3s;
 }
-
-/* .logo:hover {
-  box-shadow: 0 0 10px 0 #fff;
-} */
 
 .teamName {
   font-size: 3rem;
   text-align: center;
   font-weight: 900;
   background-color: #fff;
-
-  /* background: linear-gradient(90deg, #f4f4f4 25%, #eaeaea 50%, #f4f4f4 75%); */
   background: linear-gradient( 90deg, #fff 40%, #8b8a8a 50%, #fff 60% );
   background-size: 300% 100%;
   background-clip: text;
@@ -77,6 +70,5 @@
 }
 
 .social_icon:hover {
-  /* background-color: gray; */
   color: var(--gold);
 }

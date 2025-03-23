@@ -10,14 +10,17 @@ import './styles/fonts.css';
 import './styles/defaults.css';
 import './styles/variables.css';
 import './styles/custom.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

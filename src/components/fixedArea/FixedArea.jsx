@@ -12,7 +12,6 @@ const FixedArea = memo(() => {
   return (
     <section className={styles.fixed_area}>
       <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />
-      {/* <h1 className={styles.groupName}>{team.name}</h1> */}
       <strong className={styles.groupName}>{team.name}</strong>
       <strong className={styles.shortDescription}>{team.jobTitle}</strong>
       <div className={styles.social_container}>

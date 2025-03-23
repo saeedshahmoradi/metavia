@@ -11,6 +11,8 @@ import { email_validator, full_name_validator, message_validator, phone_validato
 import { useContext, useEffect, useState } from 'react';
 import AppContext from '../../contexts/AppContext';
 import Loading from '../../components/loading/Loading';
+import { Helmet } from 'react-helmet-async';
+import { formatPhoneNumber } from '../../utils';
 
 
 export default function Contact() {
@@ -69,8 +71,6 @@ export default function Contact() {
   }
 
   function handleContactFormSubmition(values, resetForm) {
-    console.log(values);
-
     setIsLoading(true);
     axiosRequest.post('/contact/', values, { signal: AbortSignal.timeout(10000) })
       .then(() => {
@@ -85,126 +85,133 @@ export default function Contact() {
   }
 
   return (
-    <div style={{ height: '100%' }}>
-      <motion.div className={fullScreen ? 'fullScreen_page_container' : 'page_container'}
-        style={{ transformOrigin: 'right 50%' }}
-        initial={{ x: '100%', scaleY: 0.7 }}
-        animate={{ x: ['-100%', '0', '0', '0', '0'], scaleX: [1, 1, 0.7, 0.9, 1], scaleY: [0.7, 0.7, 1, 1, 1] }}
-        exit={{ transformOrigin: 'left 50%', x: ['0', '0', '0', '0', '100%'], scaleX: [1, 0.8, 0.7, 1, 1], scaleY: [1, 1.04, 1.08, 0.7, 0.7] }}
-        transition={{ duration: 0.9, ease: 'linear' }}
-      >
-        {isLoading ? <Loading /> :
-          <>
-            <PageTitle title='Contact Us' />
-            <div className={styles.contact_container}>
+    <>
+      <Helmet>
+        <title>Contact Us - Metavia</title>
+        <meta name="description" content="Get in touch with us! Reach out for inquiries, support, or collaborations. We're here to help and would love to hear from you." />
+      </Helmet>
 
-              <section className={styles.contactWays_container}>
-                <div className={styles.contactWay_container}>
-                  <div className={styles.contactIcon_container}><FaLocationDot className='fs-3 textDarkCharcoal' /></div>
-                  <p className='d-none d-sm-block mt-2 textGold'>City</p>
-                  <p className='desc'>{team.city}</p>
-                </div>
-                <div className={styles.contactWay_container}>
-                  <div className={styles.contactIcon_container}><IoIosMail className='fs-3 textDarkCharcoal' /></div>
-                  <p className='d-none d-sm-block mt-2 textGold'>Email</p>
-                  <a className='desc' href='mailto:someone@example.com'>{team.email}</a>
-                </div>
-                <div className={styles.contactWay_container}>
-                  <div className={styles.contactIcon_container}><MdPhone className='fs-4 textDarkCharcoal' /></div>
-                  <p className='d-none d-sm-block mt-2 textGold'>Phone</p>
-                  <a className='desc' href='tel:+989003456789'>{team.phone}</a>
-                </div>
-              </section>
+      <div style={{ height: '100%' }}>
+        <motion.div className={fullScreen ? 'fullScreen_page_container' : 'page_container'}
+          style={{ transformOrigin: 'right 50%' }}
+          initial={{ x: '100%', scaleY: 0.7 }}
+          animate={{ x: ['-100%', '0', '0', '0', '0'], scaleX: [1, 1, 0.7, 0.9, 1], scaleY: [0.7, 0.7, 1, 1, 1] }}
+          exit={{ transformOrigin: 'left 50%', x: ['0', '0', '0', '0', '100%'], scaleX: [1, 0.8, 0.7, 1, 1], scaleY: [1, 1.04, 1.08, 0.7, 0.7] }}
+          transition={{ duration: 0.9, ease: 'linear' }}
+        >
+          {isLoading ? <Loading /> :
+            <>
+              <PageTitle title='Contact Us' />
+              <div className={styles.contact_container}>
 
-              <p className='h5 text-center mt-5 mb-4 textGold fw-bold'>Get in touch with us</p>
-
-              <form className={styles.contact_form} onSubmit={contactForm.handleSubmit}>
-                <div className={styles.inputs_container}>
-                  <div className='w-100'>
-                    <input className={styles.input} name='full_name' placeholder='Full name'
-                      value={contactForm.values.full_name}
-                      onChange={contactForm.handleChange}
-                      onBlur={contactForm.handleBlur} />
-                    <p className={styles.errorMessage}>{contactForm.errors.full_name && contactForm.touched.full_name && contactForm.errors.full_name}</p>
+                <section className={styles.contactWays_container}>
+                  <div className={styles.contactWay_container}>
+                    <div className={styles.contactIcon_container}><FaLocationDot className='fs-3 textDarkCharcoal' /></div>
+                    <p className='d-none d-sm-block mt-2 textGold'>City</p>
+                    <p className='desc'>{team.city}</p>
                   </div>
-
-                  <div className='w-100'>
-                    <input className={styles.input} name='email' placeholder='Email'
-                      value={contactForm.values.email}
-                      onChange={contactForm.handleChange}
-                      onBlur={contactForm.handleBlur} />
-                    <p className={styles.errorMessage}>{contactForm.errors.email && contactForm.touched.email && contactForm.errors.email}</p>
+                  <div className={styles.contactWay_container}>
+                    <div className={styles.contactIcon_container}><IoIosMail className='fs-3 textDarkCharcoal' /></div>
+                    <p className='d-none d-sm-block mt-2 textGold'>Email</p>
+                    <a className='desc' href={`mailto:${team.email}`}>{team.email}</a>
                   </div>
-
-                  <div className='w-100'>
-                    <Form.Select className={styles.countrySelect}
-                      style={{ color: contactForm.values.ISD === 0 ? 'rgb(103, 102, 102)' : 'var(--light)' }}
-                      name='ISD'
-                      value={contactForm.values.ISD}
-                      onChange={handleCountryChange}
-                      onBlur={contactForm.handleBlur}
-                    >
-                      <option hidden value={0}>Country</option>
-                      {ISDs.map(isd => <option value={isd.id} key={isd.id}>{isd.name}</option>)}
-                    </Form.Select>
-                    <p className={styles.errorMessage}>{contactForm.errors.ISD && contactForm.touched.ISD && contactForm.errors.ISD}</p>
+                  <div className={styles.contactWay_container}>
+                    <div className={styles.contactIcon_container}><MdPhone className='fs-4 textDarkCharcoal' /></div>
+                    <p className='d-none d-sm-block mt-2 textGold'>Phone</p>
+                    <a className='desc' href={`tel:${team.phone}`}>{formatPhoneNumber(team.phone)}</a>
                   </div>
+                </section>
 
-                  <div className='w-100'>
-                    <div className={styles.phoneWrapper}>
-                      <input className={styles.countryCodeInput}
-                        maxLength={5}
-                        placeholder='Code'
-                        value={selectedCountryCode}
-                        onChange={handleISDChange}
-                      />
-                      <input className={styles.phoneNumberInput} name='phone' placeholder='Phone Number'
-                        value={contactForm.values.phone}
+                <p className='h5 text-center mt-5 mb-4 textGold fw-bold'>Get in touch with us</p>
+
+                <form className={styles.contact_form} onSubmit={contactForm.handleSubmit}>
+                  <div className={styles.inputs_container}>
+                    <div className='w-100'>
+                      <input className={styles.input} name='full_name' placeholder='Full name'
+                        value={contactForm.values.full_name}
                         onChange={contactForm.handleChange}
                         onBlur={contactForm.handleBlur} />
+                      <p className={styles.errorMessage}>{contactForm.errors.full_name && contactForm.touched.full_name && contactForm.errors.full_name}</p>
                     </div>
-                    <p className={styles.errorMessage}>{contactForm.errors.phone && contactForm.touched.phone && contactForm.errors.phone}</p>
+
+                    <div className='w-100'>
+                      <input className={styles.input} name='email' placeholder='Email'
+                        value={contactForm.values.email}
+                        onChange={contactForm.handleChange}
+                        onBlur={contactForm.handleBlur} />
+                      <p className={styles.errorMessage}>{contactForm.errors.email && contactForm.touched.email && contactForm.errors.email}</p>
+                    </div>
+
+                    <div className='w-100'>
+                      <Form.Select className={styles.countrySelect}
+                        style={{ color: contactForm.values.ISD === 0 ? 'rgb(103, 102, 102)' : 'var(--light)' }}
+                        name='ISD'
+                        value={contactForm.values.ISD}
+                        onChange={handleCountryChange}
+                        onBlur={contactForm.handleBlur}
+                      >
+                        <option hidden value={0}>Country</option>
+                        {ISDs.map(isd => <option value={isd.id} key={isd.id}>{isd.name}</option>)}
+                      </Form.Select>
+                      <p className={styles.errorMessage}>{contactForm.errors.ISD && contactForm.touched.ISD && contactForm.errors.ISD}</p>
+                    </div>
+
+                    <div className='w-100'>
+                      <div className={styles.phoneWrapper}>
+                        <input className={styles.countryCodeInput}
+                          maxLength={5}
+                          placeholder='Code'
+                          value={selectedCountryCode}
+                          onChange={handleISDChange}
+                        />
+                        <input className={styles.phoneNumberInput} name='phone' placeholder='Phone Number'
+                          value={contactForm.values.phone}
+                          onChange={contactForm.handleChange}
+                          onBlur={contactForm.handleBlur} />
+                      </div>
+                      <p className={styles.errorMessage}>{contactForm.errors.phone && contactForm.touched.phone && contactForm.errors.phone}</p>
+                    </div>
+
+                    <div className='w-100'>
+                      <input className={styles.input} name='subject' placeholder='Subject'
+                        value={contactForm.values.subject}
+                        onChange={contactForm.handleChange}
+                        onBlur={contactForm.handleBlur} />
+                      <p className={styles.errorMessage}>{contactForm.errors.subject && contactForm.touched.subject && contactForm.errors.subject}</p>
+                    </div>
                   </div>
 
-                  <div className='w-100'>
-                    <input className={styles.input} name='subject' placeholder='Subject'
-                      value={contactForm.values.subject}
-                      onChange={contactForm.handleChange}
-                      onBlur={contactForm.handleBlur} />
-                    <p className={styles.errorMessage}>{contactForm.errors.subject && contactForm.touched.subject && contactForm.errors.subject}</p>
+                  <div className={styles.textArea_container}>
+                    <div className={styles.textArea_wrapper}>
+                      <textarea className={styles.textarea} name='message' placeholder='Message'
+                        value={contactForm.values.message}
+                        onChange={contactForm.handleChange}
+                        onBlur={contactForm.handleBlur} />
+                      <p className={styles.errorMessage}>{contactForm.errors.message && contactForm.touched.message && contactForm.errors.message}</p>
+                    </div>
+
+                    <div className='d-flex flex-column'>
+                      <button type='submit' className={`${styles.submit}`}>Send Message</button>
+                      <p className={styles.errorMessage}></p>
+                    </div>
                   </div>
-                </div>
+                </form>
 
-                <div className={styles.textArea_container}>
-                  <div className={styles.textArea_wrapper}>
-                    <textarea className={styles.textarea} name='message' placeholder='Message'
-                      value={contactForm.values.message}
-                      onChange={contactForm.handleChange}
-                      onBlur={contactForm.handleBlur} />
-                    <p className={styles.errorMessage}>{contactForm.errors.message && contactForm.touched.message && contactForm.errors.message}</p>
-                  </div>
+              </div>
+            </>
+          }
+          <ToastContainer className="p-3" position={window.innerWidth < 576 ? "top-center" : 'middle-center'} style={{ zIndex: 4 }}>
+            <Toast className='bg-success text-light text-center desc' show={isShowingSuccessToast} autohide delay={6000} onClose={() => setIsShowingSuccessToast(false)}>
+              <Toast.Body>Message Sent successfully</Toast.Body>
+            </Toast>
 
-                  <div className='d-flex flex-column'>
-                    <button type='submit' className={`${styles.submit}`}>Send Message</button>
-                    <p className={styles.errorMessage}></p>
-                  </div>
-                </div>
-              </form>
+            <Toast className='bg-danger text-light text-center desc' show={isShowingFailureToast} autohide delay={6000} onClose={() => setIsShowingFailureToast(false)}>
+              <Toast.Body>Failed to send Message! Please Try again</Toast.Body>
+            </Toast>
+          </ToastContainer>
+        </motion.div>
 
-            </div>
-          </>
-        }
-        <ToastContainer className="p-3" position={window.innerWidth < 576 ? "top-center" : 'middle-center'} style={{ zIndex: 4 }}>
-          <Toast className='bg-success text-light text-center desc' show={isShowingSuccessToast} autohide delay={6000} onClose={() => setIsShowingSuccessToast(false)}>
-            <Toast.Body>Message Sent successfully</Toast.Body>
-          </Toast>
-
-          <Toast className='bg-danger text-light text-center desc' show={isShowingFailureToast} autohide delay={6000} onClose={() => setIsShowingFailureToast(false)}>
-            <Toast.Body>Failed to send Message! Please Try again</Toast.Body>
-          </Toast>
-        </ToastContainer>
-      </motion.div>
-
-    </div>
+      </div>
+    </>
   )
 }

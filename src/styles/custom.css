@@ -1,4 +1,3 @@
-/* TEXT COLOR */
 .bgLight{ background-color: var(--light); }
 .bgMuted{ background-color: var(--muted); }
 .bgVividCyan{ background-color: var(--vividCyan); }
@@ -21,16 +20,6 @@
   color: #ddd;
   font-size: 1.1rem;
 }
-
-/* .page_container {
-  overflow: auto;
-  background-color: var(--darkCharcoal);
-  width: 100%;
-  height: 100%;
-  color: var(--white);
-  padding: 15px 10px 10px;
-  scrollbar-color: var(--lightCharcoal) var(--darkCharcoal);
-} */
 
 .page_container, .fullScreen_page_container {
   overflow: auto;

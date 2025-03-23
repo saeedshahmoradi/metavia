@@ -5,7 +5,6 @@
   row-gap: 20px;
   border: 2px solid var(--muted);
   border-radius: 15px;
-  /* padding: 60px 20px 20px; */
   position: relative;
   margin-top: 30px;
 }
@@ -91,9 +90,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  /* aspect-ratio: 3/2; */
   aspect-ratio: 1.78/1;
-  /* border: 3px solid var(--lightCharcoal); */
   border-radius: 7px;
 }
 
@@ -128,7 +125,7 @@
 }
 /* START Portfolio Section */
 
-/* Start Certificates Section */
+/* START Certificates Section */
 .certificates_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 100%);
