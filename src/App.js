@@ -13,6 +13,10 @@ import AppContext from './contexts/AppContext';
 import Loading from './components/loading/Loading';
 import FullScreenNavbar from './components/fullScreenNavbar/FullScreenNavbar';
 import { Helmet } from 'react-helmet-async';
+// Dr Omid Shahmoradi Start Test
+import drShahmoradiRoutes from './drShahmoradi/drShahmoradiRoutes';
+// Dr Omid Shahmoradi End Test
+
 
 
 export default function App() {
@@ -57,13 +61,24 @@ export default function App() {
     handleFullScreenMode,
   }
 
+
+  // Dr Omid Shahmoradi Start Test
+  const drShahmoradiRouter = useRoutes(drShahmoradiRoutes);
+  if (location.pathname === '/DrShahmoradi') {
+    return (
+      <>
+        {drShahmoradiRouter}
+      </>
+    )
+  }
+  // Dr Omid Shahmoradi End Test
+
   return (
     <AppContext.Provider value={globalValues}>
       <Helmet>
         <title>Metavia</title>
         <meta name="description" content="We craft stunning, high-performance websites, mobile apps, and custom softwares. With a focus on cutting-edge UI/UX design, our team transforms ideas into powerful digital experiences. Let’s build something extraordinary together." />
       </Helmet>
-
 
       {isLoading ? <Loading className='bgDarkCharcoal' /> :
 
@@ -92,7 +107,7 @@ export default function App() {
           </main>
 
           <DesktopNavbar />
-          
+
         </div>
       }
     </AppContext.Provider >

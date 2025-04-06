@@ -15,3 +15,8 @@
   src: url('../../public/assets/fonts/Calibri-Bold.woff');
   font-weight: 700;
 }
+
+@font-face {
+  font-family: IranSans;
+  src: url('../../public/assets/fonts/IRANSansXFaNum-Regular.woff2');
+}
