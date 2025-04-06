@@ -78,7 +78,7 @@ export default function App() {
     <AppContext.Provider value={globalValues}>
       <Helmet>
         <title>Metavia</title>
-        <meta name="description" content="We craft stunning, high-performance websites, mobile apps, and custom softwares. With a focus on cutting-edge UI/UX design, our team transforms ideas into powerful digital experiences. Let’s build something extraordinary together." />
+        <meta name="description" content="Metavia - Website and Application Development" />
       </Helmet>
 
       {isLoading ? <Loading className='bgDarkCharcoal' /> :

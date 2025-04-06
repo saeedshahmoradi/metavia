@@ -70,8 +70,8 @@ export default function DrShahmoradi() {
   return (
     <>
       <Helmet>
-        <title>دکتر امید رضا شاه مرادی</title>
-        <meta name="description" content="دکتر شاه مرادی کاشت مو، ابرو، ریش، سبیل، زیبایی و جوان سازی پوست و مو" />
+        <title>دکتر امید رضا شاه مرادی - Metavia</title>
+        <meta name="description" content="دکتر شاه مرادی - کاشت مو، ابرو، ریش، سبیل، زیبایی، لاغری موضعی و جوان سازی پوست" />
       </Helmet>
 
       {isLoading && <Loader />}

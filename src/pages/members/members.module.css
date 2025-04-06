@@ -27,6 +27,7 @@
   top: 0;
   transform: translate(-50%, -50%);
   border: 2px solid var(--muted);
+  background-color: var(--darkCharcoal);
 }
 
 .fullName {

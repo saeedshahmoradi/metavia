@@ -1,0 +1,19 @@
+emailjs
+
+email: noavaran.pajooh@gmail.com
+
+service_id: service_ahmrzqo
+template_id: template_tjpnc9l
+user_id (publick_key): xamjeH81fX-hj9LVy
+
+
+Template Parameters:
+title
+fullName
+time
+age
+phoneNumber
+subject
+message
+name
+email
