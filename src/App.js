@@ -64,7 +64,8 @@ export default function App() {
 
   // Dr Omid Shahmoradi Start Test
   const drShahmoradiRouter = useRoutes(drShahmoradiRoutes);
-  if (location.pathname === '/DrShahmoradi') {
+  if (
+    location.pathname.toLowerCase() === '/drshahmoradi') {
     return (
       <>
         {drShahmoradiRouter}
