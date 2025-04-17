@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import styles from './contact.module.css';
+import { motion } from 'motion/react';
+import styles from './contactUs.module.css';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import { useFormik } from 'formik';
 import { MdPhone } from "react-icons/md";

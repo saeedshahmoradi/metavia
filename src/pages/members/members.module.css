@@ -15,6 +15,7 @@
   padding: 60px 20px 20px;
   position: relative;
   min-height: 180px;
+  text-align: center;
 }
 
 .photo {
@@ -32,7 +33,7 @@
 
 .fullName {
   font-size: 1.2rem;
-  margin-top: 20px;
+  margin: 20px 0 8px;
   color: var(--white);
 }
 
@@ -40,6 +41,11 @@
   font-size: 1rem;
   color: var(--light);
   font-weight: 400;
+  margin-top: 10px;
+}
+
+.phone_wrapper{
+  direction: ltr;
 }
 
 @media (min-width: 400px) {

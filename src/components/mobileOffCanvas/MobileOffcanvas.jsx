@@ -1,22 +1,42 @@
 import styles from './mobileOffcanvas.module.css';
-import { activeLinkSpecifier } from '../../utils';
+import { activeLinkSpecifier } from '../../utils/utils';
 import { memo, useContext } from 'react';
-import { NavLink } from 'react-router';
-import { Offcanvas } from 'react-bootstrap';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Button, Offcanvas } from 'react-bootstrap';
 import { IoCloseSharp } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import AppContext from '../../contexts/AppContext';
+import { useTranslation } from 'react-i18next';
+
 
 const MobileOffcanvas = memo(({ show, closeOffcanvas }) => {
 
   const { team } = useContext(AppContext);
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigateTo = useNavigate();
+
+  function toggleLanguage() {
+    closeOffcanvas();
+    const newLang = i18n.language === 'fa' ? 'en' : 'fa';
+    const currentPath = location.pathname;
+    const newPath = currentPath.replace(/^\/(fa|en)/, `/${newLang}`);
+    i18n.changeLanguage(newLang).then(() => {
+      document.documentElement.lang = newLang;
+      navigateTo(newPath);
+    });
+  }
 
   return (
-    <Offcanvas className={styles.offcanvas} show={show} onHide={closeOffcanvas} placement='end'>
+    <Offcanvas className={styles.offcanvas} show={show} onHide={closeOffcanvas} placement={i18n.language === 'fa' ? 'start' : 'end'}>
       <Offcanvas.Header className={styles.offcanvasHeader}>
         <IoCloseSharp className={styles.closeBtn} onClick={closeOffcanvas} />
+        <Button className={styles.languageBtn} variant='outline-light' onClick={toggleLanguage}
+          style={{ fontFamily: i18n.language === 'fa' ? 'calibri' : 'IranSans' }}>
+          {i18n.language === 'fa' ? 'English' : 'فارسی'}
+        </Button>
       </Offcanvas.Header>
       <Offcanvas.Body className={styles.offcanvasBody}>
         <div className={styles.intro}>
@@ -26,12 +46,22 @@ const MobileOffcanvas = memo(({ show, closeOffcanvas }) => {
         </div>
 
         <nav className='mt-3'>
-          <ul className={styles.desktopNavUl}>
-            <li onClick={closeOffcanvas} ><NavLink to="/" style={({ isActive }) => activeLinkSpecifier(isActive)}>Home</NavLink></li>
-            <li onClick={closeOffcanvas} ><NavLink to="/members" style={({ isActive }) => activeLinkSpecifier(isActive)}>Members</NavLink></li>
-            <li onClick={closeOffcanvas} ><NavLink to="/portfolio" style={({ isActive }) => activeLinkSpecifier(isActive)}>portfolio</NavLink></li>
-            <li onClick={closeOffcanvas} ><NavLink to="/contact" style={({ isActive }) => activeLinkSpecifier(isActive)}>Contact Us</NavLink></li>
-            <li onClick={closeOffcanvas} ><NavLink to="/blogs" style={({ isActive }) => activeLinkSpecifier(isActive)}>Blogs</NavLink></li>
+          <ul className={styles.mobileNavUl}>
+            <li onClick={closeOffcanvas}>
+              <NavLink to={`/${i18n.language}`} style={activeLinkSpecifier('', location, i18n)}>{t("navbar.home")}</NavLink>
+            </li>
+            <li onClick={closeOffcanvas}>
+              <NavLink to={`/${i18n.language}/members`} style={activeLinkSpecifier('/members', location, i18n)}>{t("navbar.members")}</NavLink>
+            </li>
+            <li onClick={closeOffcanvas}>
+              <NavLink to={`/${i18n.language}/portfolio`} style={activeLinkSpecifier('/portfolio', location, i18n)}>{t("navbar.portfolio")}</NavLink>
+            </li>
+            <li onClick={closeOffcanvas}>
+              <NavLink to={`/${i18n.language}/contactUs`} style={activeLinkSpecifier('/contactUs', location, i18n)}>{t("navbar.contactUs")}</NavLink>
+            </li>
+            <li onClick={closeOffcanvas}>
+              <NavLink to={`/${i18n.language}/blogs`} style={activeLinkSpecifier('/blogs', location, i18n)}>{t("navbar.blogs")}</NavLink>
+            </li>
           </ul>
         </nav>
 

@@ -1,11 +1,12 @@
-import { memo, useContext } from 'react';
+import { useContext } from 'react';
 import styles from './fixedArea.module.css';
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import AppContext from '../../contexts/AppContext';
 
-const FixedArea = memo(() => {
+
+function FixedArea() {
 
   const { team } = useContext(AppContext);
 
@@ -21,6 +22,6 @@ const FixedArea = memo(() => {
       </div>
     </section>
   )
-})
+}
 
 export default FixedArea;

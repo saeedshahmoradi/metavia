@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/reset.css';
 import './styles/fonts.css';
@@ -12,15 +12,18 @@ import './styles/variables.css';
 import './styles/custom.css';
 import { HelmetProvider } from 'react-helmet-async';
 
+import './i18n';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </HelmetProvider>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,19 +1,19 @@
 import styles from './blog.module.css';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useContext, useEffect, useState } from 'react';
 import axiosRequest from '../../services/axios/axiosRequest';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { SlClock } from "react-icons/sl";
 import Loading from '../../components/loading/Loading';
 import AppContext from '../../contexts/AppContext';
 import { Helmet } from 'react-helmet-async';
 import DOMPurify from 'dompurify';
-import { extractTextFromHTML, stringToTitle } from '../../utils';
+import { extractTextFromHTML, stringToTitle } from '../../utils/utils';
 
 
 export default function Blog() {
 
-  const { fullScreen } = useContext(AppContext);
+  const { fullScreen, t, language } = useContext(AppContext);
   const { slug } = useParams();
   const navigateTo = useNavigate();
   const [blog, setBlog] = useState({});
@@ -21,7 +21,7 @@ export default function Blog() {
 
   useEffect(() => {
     const blogController = new AbortController();
-    axiosRequest.get(`/blogs/${slug}`, { signal: blogController.signal })
+    axiosRequest.get(`/blogs/${slug}/?lang=${language}`, { signal: blogController.signal })
       .then(res => setBlog(res.data))
       .catch(err => { if (err?.response?.status === 404) navigateTo('/') })
       .finally(() => setIsLoading(false));
@@ -31,7 +31,7 @@ export default function Blog() {
   function dateFormatter(dateString) {
     const date = new Date(dateString);
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
-    const longDate = date.toLocaleDateString("en-US", options);
+    const longDate = language === 'fa' ? date.toLocaleDateString("fa-IR", options) : date.toLocaleDateString("en-US", options);
     return longDate;
   }
 
@@ -40,13 +40,13 @@ export default function Blog() {
       <Helmet>
         {isLoading ?
           <>
-            <title>{stringToTitle(slug, '-')} - Metavia</title>
-            <meta name="description" content="Explore expert insights on website development, mobile app design, software design, and UI/UX trends. Our blog is your go-to resource for cutting-edge tips, tutorials, and industry knowledge to elevate your digital projects." />
+            <title>{t("blog.title", { title: stringToTitle(slug, '-') })}</title>
+            <meta name="description" content={t("blog.metaDescriptionLoading", { title: stringToTitle(slug, '-') })} />
           </>
           :
           <>
-            <title>{blog.title} - Metavia</title>
-            <meta name='description' content={extractTextFromHTML(DOMPurify.sanitize(blog.description)).slice(0, 150)} />
+            <title>{t("blog.title", { title: blog.title })}</title>
+            <meta name='description' content={t("blog.metaDescription", { description: extractTextFromHTML(DOMPurify.sanitize(blog.description)).slice(0, 150).trim() + '...' })} />
           </>
         }
       </Helmet>
@@ -60,12 +60,13 @@ export default function Blog() {
           <div className={styles.blog_container}>
             <img className={styles.blogImage} src={blog.photo ?? '/asstes/images/noImage.jpg'} alt={blog.title} />
             <div className={styles.blogContent_container}>
-              <strong className={`${styles.blogTitle} title`}>{blog.title}</strong>
+              <h2 className={`${styles.blogTitle} h3`}>{blog.title}</h2>
 
-              <div className='desc' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}></div>
+              <div className={`${language === 'fa' ? 'IranSans-font' : 'calibri-font'}  desc`}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}></div>
 
               <div className={`${styles.blogInfos} desc`}>
-                <SlClock className='fs-6 me-2' />
+                <SlClock className='fs-6' />
                 {dateFormatter(blog.created_at)}
               </div>
             </div>

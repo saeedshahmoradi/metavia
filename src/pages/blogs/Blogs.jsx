@@ -1,22 +1,22 @@
 import { useContext, useEffect, useState } from 'react';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import styles from './blogs.module.css';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import axiosRequest from '../../services/axios/axiosRequest';
-import { Link } from 'react-router';
 import Loading from '../../components/loading/Loading';
 import AppContext from '../../contexts/AppContext';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 export default function Blogs() {
 
-  const { fullScreen } = useContext(AppContext);
+  const { fullScreen, t, language } = useContext(AppContext);
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const blogsController = new AbortController();
-    axiosRequest.get('/blogs/', { signal: blogsController.signal })
+    axiosRequest.get(`/blogs/?lang=${language}`, { signal: blogsController.signal })
       .then(res => setBlogs(res.data))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
@@ -27,8 +27,8 @@ export default function Blogs() {
 
     <>
       <Helmet>
-        <title>Blogs - Metavia</title>
-        <meta name="description" content="Explore expert insights on website development, mobile app design, software design, and UI/UX trends. Our blog is your go-to resource for cutting-edge tips, tutorials, and industry knowledge to elevate your digital projects." />
+        <title>{t("blogs.title")}</title>
+        <meta name="description" content={t('blogs.metaDescription')} />
       </Helmet>
 
       <motion.div className={fullScreen ? 'fullScreen_page_container' : 'page_container'}
@@ -38,10 +38,10 @@ export default function Blogs() {
       >
         {isLoading ? <Loading /> :
           <>
-            <PageTitle title='Blogs' />
+            <PageTitle title={t("blogs.pageTitle")} />
             <div className={styles.blogs_container}>
               {blogs.map(({ id, photo, title, slug }) =>
-                <Link to={`/blog/${slug}`} className={styles.card} key={id}>
+                <Link to={`/${language}/blog/${slug}`} className={styles.card} key={id}>
                   <div className='rounded-2 overflow-hidden'>
                     <img className={styles.image} src={photo ?? '/assets/images/noImage.jpg'} alt={title} loading='lazy' />
                   </div>

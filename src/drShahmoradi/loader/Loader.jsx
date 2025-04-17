@@ -1,4 +1,3 @@
-import { style } from 'framer-motion/client';
 import styles from './loader.module.css';
 
 export default function Loader() {

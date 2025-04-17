@@ -1,17 +1,15 @@
-.offcanvas{
-  width: 280px !important;
+.offcanvas {
+  width: 100% !important;
   background-color: var(--lightCharcoal) !important;
 }
 
-.offcanvasHeader{
-  padding: 10px 0 0 10px !important;
+.offcanvasHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px !important;
 }
 
-.offcanvasBody{
-  scrollbar-width: none;
-}
-
-.closeBtn{
+.closeBtn {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -21,32 +19,43 @@
   padding: 5px;
 }
 
-.intro{
+.languageBtn{
+  width: 65px;
+  height: 35px;
+}
+
+.offcanvasBody {
+  scrollbar-width: none;
+}
+
+.intro {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
-.logo{
+.logo {
   width: 120px;
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.desktopNavUl{
+.mobileNavUl {
   display: flex;
   flex-flow: column nowrap;
   gap: 2px;
 }
 
-.desktopNavUl a{
+.mobileNavUl a {
   display: block;
   text-align: center;
   line-height: 45px;
   height: 45px;
   font-size: 1.2rem;
   color: var(--white);
+
+  border-bottom: 1px dotted gray;
 }
 
 .social {
@@ -59,7 +68,7 @@
 }
 
 .social_icon {
-  font-size: 2rem;
+  font-size: 32px;
   border-radius: 50%;
   padding: 3px;
   transition: 0.5s;
@@ -68,4 +77,10 @@
 
 .social_icon:hover {
   color: var(--gold);
+}
+
+@media (min-width: 400px) {
+  .offcanvas {
+    width: 400px !important;
+  }
 }

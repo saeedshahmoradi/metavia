@@ -1,0 +1,124 @@
+{
+  "blog": {
+    "title": "{{title}} | Blog - Metavia",
+    "metaDescriptionLoading": "Read the full blog post about \"{{title}}\" to explore insights and tips.",
+    "metaDescription": "{{description}}"
+  },
+
+  "blogs": {
+    "title": "Blogs - Metavia",
+    "pageTitle": "Blogs",
+    "metaDescription": "Explore expert insights on website, mobile, and software development. the Metavia blog is your go-to resource for cutting-edge tips and tutorials to elevate your digital projects."
+  },
+
+  "contact": {
+    "title": "Contact Us - Metavia",
+    "metaDescription": "Need help or want to collaborate? Contact our team for consultations, support and inquiries. We're here to help - reach out today!",
+    "pageTitle": "Contact Us",
+    "city": "City",
+    "phone": "Phone",
+    "email": "Email",
+    "form": {
+      "label": "Get in touch with us",
+      "fullName": "Full Name",
+      "email": "Email",
+      "country": "Country",
+      "code": "Code",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "validation": {
+        "fullName": {
+          "required": "Please enter your full name"
+        },
+        "email": {
+          "required": "Please enter your email address",
+          "invalid": "Please enter a valid email address"
+        },
+        "isd": {
+          "required": "Please select your country"
+        },
+        "phone": {
+          "required": "Please enter your phone number"
+        },
+        "subject": {
+          "required": "Please enter a subject"
+        },
+        "message": {
+          "required": "Please enter a message"
+        }
+      },
+      "submit": "Send Message",
+      "api": {
+        "success": "Message Sent successfully",
+        "failure": "Failed to send Message! Please Try again"
+      }
+    }
+  },
+
+  "home": {
+    "title": "Metavia - Creative Web & App Development",
+    "metaDescription": "Metavia delivers creative web design and mobile apps, offering smart software solutions tailored to both individuals and businesses.",
+    "teamDescription": "Website and Application Development"
+  },
+
+  "members": {
+    "title": "Development Team Members - Metavia",
+    "metaDescription": "Meet Metavia’s talented Development Team. We combine creativity and expertise to build innovative web, app, and software solutions.",
+    "pageTitle": "Members"
+  },
+
+  "notFound": {
+    "title": "Page Not Found - Metavia",
+    "metaDescription": "Oops! The page you're looking for doesn't exist. Explore other sections of Metavia to find what you need.",
+    "pageTitle": "Sorry, Page Not Found !",
+    "links": {
+      "homeLink": "Back to Home",
+      "contactUsLink": "Contact Us"
+    }
+  },
+
+  "portfolio": {
+    "title": "Portfolio | Web , App & Software Projects - Metavia ",
+    "metaDescription": "Discover how Metavia delivers stunning websites and powerful mobile apps tailored to your business goals. Explore our portfolio of innovative, results-driven solutions.",
+    "pageTitle": "Portfolio",
+    "categories": {
+      "all": "All",
+      "websites": "Websites",
+      "designs": "Designs"
+    },
+    "visitButton": "View Project"
+  },
+
+  "resume": {
+    "title": "{{name}} Resume - Metavia",
+    "metaDescription": "Discover the resume and professional background of {{name}} from the Metavia team. Explore their skills, experience, and expertise in web, mobile app and software development.",
+    "profile": {
+      "sectionTitle": "Profile",
+      "age": "Age",
+      "degree": "Degree",
+      "city": "City",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "about": { "sectionTitle": "About Me" },
+    "skills": {"sectionTitle": "Skills"},
+    "portfolio": { "sectionTitle": "Portfolio" },
+    "certificates": {"sectionTitle": "Certificates"}
+  },
+
+  "app": {
+    "title": "Metavia - Creative Web & App Development",
+    "metaDescription": "Metavia delivers creative web design and mobile apps, offering smart software solutions tailored to both individuals and businesses."
+  },
+
+  "navbar": {
+    "home": "Home",
+    "members": "Members",
+    "portfolio": "Portfolio",
+    "contactUs": "Contact Us",
+    "blogs": "Blogs",
+    "fullScreen": "Full Screen",
+    "smallMode": "Small Mode"
+  }
+}

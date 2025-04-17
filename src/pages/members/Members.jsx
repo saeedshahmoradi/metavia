@@ -1,24 +1,24 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import styles from './members.module.css';
 import { useContext, useEffect, useState } from 'react';
 import axiosRequest from '../../services/axios/axiosRequest';
 import PageTitle from '../../components/pageTitle/PageTitle';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { IoCallSharp } from "react-icons/io5";
 import Loading from '../../components/loading/Loading';
 import AppContext from '../../contexts/AppContext';
 import { Helmet } from 'react-helmet-async';
-import { formatPhoneNumber } from '../../utils';
+import { formatPhoneNumber } from '../../utils/utils';
 
 export default function Members() {
 
-  const { fullScreen } = useContext(AppContext);
+  const { fullScreen, t, language } = useContext(AppContext);
   const [members, setMembers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const membersController = new AbortController();
-    axiosRequest.get('/members/', { signal: membersController.signal })
+    axiosRequest.get(`/members/?lang=${language}`, { signal: membersController.signal })
       .then(res => setMembers(res.data))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
@@ -28,8 +28,8 @@ export default function Members() {
   return (
     <>
       <Helmet>
-        <title>Development Team Members - Metavia</title>
-        <meta name="description" content="Meet the brilliant minds behind our projects! Our Development Team combines creativity and expertise to build innovative solutions." />
+        <title>{t("members.title")}</title>
+        <meta name="description" content={t("members.metaDescription")} />
       </Helmet >
 
       <div style={{ height: '100%', perspective: '400px' }}>
@@ -41,15 +41,15 @@ export default function Members() {
         >
           {isLoading ? <Loading /> :
             <>
-              <PageTitle title='Members' />
+              <PageTitle title={t("members.pageTitle")} />
 
               <div className={styles.members_container}>
                 {members.map(({ id, slug, photo, full_name, role, phone }) =>
-                  <Link to={`/resume/${slug}`} className={styles.card} key={id}>
+                  <Link to={`/${language}/resume/${slug}`} className={styles.card} key={id}>
                     <img className={styles.photo} src={photo ?? '/assets/images/noProfile.gif'} alt={full_name} />
-                    <h2 className={`${styles.fullName} h5`}>{full_name}</h2>
-                    <h3 className={styles.role}>{role}</h3>
-                    <div className='d-flex gap-2 align-items-center desk mt-3'>
+                    <h2 className={styles.fullName}>{full_name}</h2>
+                    <h2 className={styles.role}>{role}</h2>
+                    <div className={`${styles.phone_wrapper} d-flex gap-2 align-items-center desk mt-3`}>
                       {phone && <IoCallSharp className='fs-6' />}
                       <p>{formatPhoneNumber(phone)}</p>
                     </div>

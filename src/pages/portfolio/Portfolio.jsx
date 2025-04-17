@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import styles from './portfolio.module.css';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import { useContext, useEffect, useRef, useState } from 'react';
@@ -10,15 +10,16 @@ import { Helmet } from 'react-helmet-async';
 
 export default function Portfolio() {
 
-  const { fullScreen } = useContext(AppContext);
+  const { fullScreen, t, language } = useContext(AppContext);
   const allPortfolioRef = useRef([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryName, setCategoryName] = useState('All');
+  const [selectedCategoryMenu, setSelectedCategoryMenu] = useState('All');
   const [currentCategory, setCurrentCategory] = useState([]);
+
 
   useEffect(() => {
     const portfolioController = new AbortController();
-    axiosRequest.get('/projects/', { signal: portfolioController.signal })
+    axiosRequest.get(`/projects/?lang=${language}`, { signal: portfolioController.signal })
       .then(res => {
         allPortfolioRef.current = res.data;
         setCurrentCategory(res.data);
@@ -28,22 +29,27 @@ export default function Portfolio() {
     return () => portfolioController.abort();
   }, []);
 
-  function handleCategoryChange(category) {
-    setCategoryName(category);
-    if (category === 'All') {
+
+  const categoryMenu = [
+    { id: 1, name: 'All' },
+    { id: 2, name: 'Websites' },
+    { id: 3, name: 'Designs' }];
+
+  function handleCategoryChange(menu) {
+    setSelectedCategoryMenu(menu);
+    if (menu === 'All') {
       setCurrentCategory(allPortfolioRef.current)
     } else {
-      const filteredItems = allPortfolioRef.current.filter(item => item.category === category);
+      const filteredItems = allPortfolioRef.current.filter(item => item.category === menu);
       setCurrentCategory(filteredItems);
     }
   }
 
   return (
-
     <>
       <Helmet>
-        <title>Portfolio - Metavia</title>
-        <meta name="description" content="We specialize in professional web design and mobile app development. Explore our portfolio and innovative solutions to take your business to the next level." />
+        <title>{t("portfolio.title")}</title>
+        <meta name="description" content={t("portfolio.metaDescription")} />
       </Helmet>
 
       <div style={{ perspective: '700px', height: '100%' }}>
@@ -76,18 +82,22 @@ export default function Portfolio() {
         >
           {isLoading ? <Loading /> :
             <>
-              <PageTitle title='Portfolio' />
+              <PageTitle title={t("portfolio.pageTitle")} />
               <div className='mt-5'>
                 <nav>
                   <ul className={`${styles.portfolioUl}`}>
-                    <li className={`${categoryName === 'All' ? 'textVividCyan' : 'textMuted'} px-1`} onClick={() => handleCategoryChange('All')}>All</li>
-                    <li className={`${categoryName === 'Websites' ? 'textVividCyan' : 'textMuted'} px-1`} onClick={() => handleCategoryChange('Websites')}>Websites</li>
-                    <li className={`${categoryName === 'Designs' ? 'textVividCyan' : 'textMuted'} px-1`} onClick={() => handleCategoryChange('Designs')}>Designs</li>
+                    {categoryMenu.map((menu) =>
+                      <li className={`${selectedCategoryMenu === menu.name ? styles.activeLink : 'textMuted'} pb-2 px-2`} key={menu.id}
+                        onClick={() => handleCategoryChange(menu.name)}
+                      >
+                        {t(`portfolio.categories.${menu.name.toLowerCase()}`)}
+                      </li>
+                    )}
                   </ul>
                 </nav>
 
                 <section className={styles.portfolio_container}>
-                  {currentCategory.map(({ id, link, name, photo }, index) =>
+                  {currentCategory.map(({ id, link, name, photo }) =>
                     <motion.div
                       className={styles.portfolioCard}
                       layout
@@ -99,9 +109,9 @@ export default function Portfolio() {
                       <a href={link} target='_blank' rel="noreferrer noopener">
                         <div className={styles.portfolioPhoto_wrapper}>
                           <img className={styles.portfolioPhoto} src={photo} alt={name} />
-                          <div className={styles.visitButton}>View Project</div>
+                          <div className={language === 'fa' ? styles.visitButton_fa : styles.visitButton_en}>{t("portfolio.visitButton")}</div>
                         </div>
-                        <p className='cardTitle text-truncate w-100 mt-2'>{name}</p>
+                        <p className={`${styles.projectName} cardTitle text-truncate w-100 mt-2 px-2`}>{name}</p>
                       </a>
                     </motion.div>
                   )}

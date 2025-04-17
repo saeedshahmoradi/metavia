@@ -4,5 +4,26 @@
 
 body {
   background-color: var(--darkCharcoal);
-  font-family: calibri;
+}
+
+html[lang="fa"]{
+  font-size: 14px;
+}
+
+html[lang="en"]{
+  font-size: 16px;
+}
+
+html[lang="fa"] body {
+  font-family: IranSans;
+  direction: rtl;
+}
+
+html[lang="en"] body {
+  font-family: calibri, sans-serif;
+  direction: ltr;
+}
+
+html[lang="fa"] p{
+  line-height: 2;
 }

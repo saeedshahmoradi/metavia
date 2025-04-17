@@ -21,6 +21,10 @@
   font-size: 30px;
 }
 
+.languageIcon {
+  color: var(--light);
+}
+
 .fullScreenIcon {
   width: 36px;
   height: 36px;
@@ -44,10 +48,9 @@
 .menuLabel {
   position: absolute;
   opacity: 0;
-  right: 0;
   top: 0;
   transition: 0.5s;
-  background-color: var(--lightCharcoal);
+  background-color: var(--darkCharcoal);
   color: var(--white);
   white-space: nowrap;
   height: 30px;
@@ -57,9 +60,22 @@
   z-index: 4;
 }
 
-.desktopNavUl > li:hover .menuLabel {
+.persianNav .menuLabel {
+  right: 0;
+}
+
+.persianNav > ul > li:hover .menuLabel {
   opacity: 1;
   right: 100%;
+}
+
+.englishNav .menuLabel {
+  left: 0;
+}
+
+.englishNav > ul > li:hover .menuLabel {
+  opacity: 1;
+  left: 100%;
 }
 
 .desktopNavUl > li:hover .menuIcon {

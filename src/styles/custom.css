@@ -43,6 +43,15 @@
   color: var(--light);
 }
 
+/* Data recieve from backend and should be set with DangerouslySetInnerHTML */
+.IranSans-font * {
+  font-family: 'IranSans', sans-serif !important;
+}
+
+.calibri-font *{
+  font-family: 'calibri', sans-serif !important;
+}
+
 @media (min-width: 576px) {
   .page_container, .fullScreen_page_container {
     padding: 50px;

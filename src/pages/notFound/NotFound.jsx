@@ -1,19 +1,19 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import styles from './notFound.module.css';
-import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-
+import { useContext } from 'react';
+import AppContext from '../../contexts/AppContext';
 
 export default function NotFound() {
 
-  const navigateTo = useNavigate();
+  const {t, language} = useContext(AppContext);
 
   return (
     <>
       <Helmet>
-        <title>Page Not Found - Metavia</title>
-        <meta name="description" content="Oops! Looks like you're lost. The page you're looking for doesn't exist, but don't worry—let's get you back on track!" />
+        <title>{t("notFound.title")}</title>
+        <meta name="description" content={t("notFound.metaDescription")} />
       </Helmet>
 
       <motion.div className={`${styles.container} page_container`}
@@ -26,9 +26,9 @@ export default function NotFound() {
         exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.5 } }}
       >
         <div className={styles.notFound_container}>
-          <p className='h1 fw-bold'>Sorry,</p>
-          <p className='h1 fw-bold'>Page Not Found !</p>
-          <Button className={styles.backToHomeBtn} onClick={(() => navigateTo('/'))}>Back to Home</Button>
+          <p className='h1 fw-bold text-center'>{t("notFound.pageTitle")}</p>
+          <Link to={`/${language}`} className={`${styles.link} ${styles.homeLink}`}>{t("notFound.links.homeLink")}</Link>
+          <Link to={`/${language}/contactUs`} className={`${styles.link} ${styles.contactUsLink}`}>{t("notFound.links.contactUsLink")}</Link>
         </div>
       </motion.div>
     </>

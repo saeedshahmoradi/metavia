@@ -12,6 +12,12 @@
   transition: all 0.3s;
 }
 
+.languageIcon{
+  width: 33px;
+  height: 33px;
+  color: var(--light);
+}
+
 .fullScreenIcon{
   width: 36px;
   height: 36px;
@@ -38,7 +44,7 @@
 .menuLabel { 
   color: var(--white);
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
 .fullScreenNavUl > li:hover .menuIcon {

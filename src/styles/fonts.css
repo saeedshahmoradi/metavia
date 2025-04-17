@@ -1,22 +1,29 @@
 @font-face {
   font-family: calibri;
-  src: url('../../public/assets/fonts/Calibri-Light.woff');
+  src: url("../../public/assets/fonts/Calibri-Light.woff");
   font-weight: 100;
 }
 
 @font-face {
   font-family: calibri;
-  src: url('../../public/assets/fonts/Calibri.woff');
+  src: url("../../public/assets/fonts/Calibri.woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: calibri;
-  src: url('../../public/assets/fonts/Calibri-Bold.woff');
+  src: url("../../public/assets/fonts/Calibri-Bold.woff");
   font-weight: 700;
 }
 
 @font-face {
   font-family: IranSans;
-  src: url('../../public/assets/fonts/IRANSansXFaNum-Regular.woff2');
+  src: url("../../public/assets/fonts/IRANSansXFaNum-Regular.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: IranSans;
+  src: url("../../public/assets/fonts/IRANSansXFaNum-Bold.woff2");
+  font-weight: 700;
 }
