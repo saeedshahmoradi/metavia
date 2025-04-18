@@ -34,9 +34,10 @@ export default function App() {
 
   // Detect Clients Language from IP Address
   useEffect(() => {
+    const countryController = new AbortController();
     if (location.pathname === '/') {
       setIsLoading(true);
-      axios.get('https://api.db-ip.com/v2/free/self')
+      axios.get('https://api.db-ip.com/v2/free/self', { signal: countryController.signal })
         .then((res) => {
           const countryCode = res.data.countryCode;
           const defaultLang = ['IR', 'AF', 'TJ'].includes(countryCode) ? 'fa' : 'en';
@@ -45,6 +46,7 @@ export default function App() {
         .catch(() => window.location.replace(`/en`))
         .finally(() => setIsLoading(false));
     }
+    return (() => countryController.abort());
   }, [location.pathname]);
 
 
@@ -65,11 +67,11 @@ export default function App() {
         city
       }
     }`;
-    axiosRequest.get(`/team?query=${query}`, { headers: { 'Content-Type': 'application/json', }, signal: teamController.signal })
+    axiosRequest.get(`/team?query=${query}`, { headers: { 'Content-Type': 'application/json' }, signal: teamController.signal })
       .then(res => setTeam(res.data.data.team[0]))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false))
-    return () => teamController.abort();
+    return (() => teamController.abort());
   }, [i18n.language]);
 
 
