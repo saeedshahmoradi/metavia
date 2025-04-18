@@ -6,14 +6,10 @@ import ContactUs from "./pages/contactUs/ContactUs";
 import Blogs from "./pages/blogs/Blogs";
 import Blog from "./pages/blog/Blog";
 import NotFound from "./pages/notFound/NotFound";
-// TEST
 import Loading from "./components/loading/Loading";
-// TEST
 
 const generateLangRoutes = (lang) => [
-  // TEST
   { path: `/`, element: <Loading /> },
-  // TEST
   { path: `/${lang}`, element: <Home /> },
   { path: `/${lang}/members`, element: <Members /> },
   { path: `/${lang}/resume/:slug`, element: <Resume /> },

@@ -12,6 +12,7 @@ import AppContext from '../../contexts/AppContext';
 import { useTranslation } from 'react-i18next';
 import { IoEarth } from "react-icons/io5";
 
+
 export default function DesktopNavbar() {
 
   const { fullScreen, handleFullScreenMode } = useContext(AppContext);
@@ -32,6 +33,7 @@ export default function DesktopNavbar() {
 
   return (
     <header className={styles.desktopHeader}>
+
       <nav className={`${styles.desktopNav} ${i18n.language === 'fa' ? styles.persianNav : styles.englishNav}`}
         style={fullScreen ?
           { transform: 'rotateY(90deg)', width: 0, transition: 'width 0.5s 0.5s, transform 0.3s' }
