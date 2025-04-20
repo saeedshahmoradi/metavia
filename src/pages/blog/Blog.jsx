@@ -22,7 +22,7 @@ export default function Blog() {
   useEffect(() => {
     const blogController = new AbortController();
     axiosRequest.get(`/blogs/${slug}/?lang=${language}`, { signal: blogController.signal })
-      .then(res => setBlog(res.data))
+      .then(res => {setBlog(res.data); console.log(res.data)})
       .catch(err => { if (err?.response?.status === 404) navigateTo('/') })
       .finally(() => setIsLoading(false));
     return () => blogController.abort();
@@ -67,7 +67,7 @@ export default function Blog() {
 
               <div className={`${styles.blogInfos} desc`}>
                 <SlClock className='fs-6' />
-                {dateFormatter(blog.created_at)}
+                {dateFormatter(blog.created_at) }
               </div>
             </div>
           </div>
