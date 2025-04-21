@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function Home() {
 
-  const { team, fullScreen, t } = useContext(AppContext);
+  const { team, fullScreen, t, language } = useContext(AppContext);
 
   const description = t("home.teamDescription").split('');
 
@@ -19,6 +19,7 @@ export default function Home() {
       <Helmet>
         <title>{t('home.title')}</title>
         <meta name="description" content={t('home.metaDescription')} />
+        <link rel="canonical" href={`https://www.metavia.ir/${language}/`} />
       </Helmet>
 
       <div style={{ perspective: '400px', height: '100%' }}>
