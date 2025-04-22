@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
   max-width: 800px;
   margin: 0 auto;
 }
@@ -12,6 +11,10 @@
   aspect-ratio: 2/1;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.blogContent_container {
+  width: 100%;
 }
 
 .blogTitle {
@@ -34,6 +37,7 @@
   padding: 0 10px;
   border: 1px solid var(--lightCharcoal);
 }
+
 
 @media (min-width: 576px) {
   .blogContent_container {

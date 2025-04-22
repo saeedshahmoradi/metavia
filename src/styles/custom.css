@@ -27,7 +27,7 @@
   width: 100%;
   height: 100%;
   color: var(--white);
-  padding: 15px 10px 10px;
+  padding: 15px 25px 10px;
   scrollbar-color: var(--lightCharcoal) var(--darkCharcoal);
 }
 
@@ -43,7 +43,7 @@
   color: var(--light);
 }
 
-/* Data recieve from backend and should be set with DangerouslySetInnerHTML */
+/* START Data recieve from backend and should be set with DangerouslySetInnerHTML */
 .IranSans-font * {
   font-family: 'IranSans', sans-serif !important;
 }
@@ -51,6 +51,31 @@
 .calibri-font *{
   font-family: 'calibri', sans-serif !important;
 }
+
+
+/* START BLOG */
+#blog_table_container{
+  width: 100%;
+  overflow-x: scroll;
+  font-size: 1rem;
+}
+
+#blog_table{
+  width: 100%;
+  white-space: nowrap;
+}
+
+#blog_table th,td{
+  border: 1px solid #606060;
+  padding: 8px 10px;
+}
+
+@media (min-width: 576px){
+  #blog_table{ white-space: wrap; }
+}
+/* END Blog */
+/* END Data recieve from backend and should be set with DangerouslySetInnerHTML */
+
 
 @media (min-width: 576px) {
   .page_container, .fullScreen_page_container {

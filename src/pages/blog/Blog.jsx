@@ -22,7 +22,7 @@ export default function Blog() {
   useEffect(() => {
     const blogController = new AbortController();
     axiosRequest.get(`/blogs/${slug}/?lang=${language}`, { signal: blogController.signal })
-      .then(res => {setBlog(res.data); console.log(res.data)})
+      .then(res => { setBlog(res.data); console.log(res.data) })
       .catch(err => { if (err?.response?.status === 404) navigateTo('/') })
       .finally(() => setIsLoading(false));
     return () => blogController.abort();
@@ -63,11 +63,12 @@ export default function Blog() {
               <h2 className={`${styles.blogTitle} h3`}>{blog.title}</h2>
 
               <div className={`${language === 'fa' ? 'IranSans-font' : 'calibri-font'}  desc`}
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}></div>
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}>
+              </div>
 
               <div className={`${styles.blogInfos} desc`}>
                 <SlClock className='fs-6' />
-                {dateFormatter(blog.created_at) }
+                {dateFormatter(blog.created_at)}
               </div>
             </div>
           </div>
