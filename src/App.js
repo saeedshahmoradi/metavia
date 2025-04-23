@@ -118,7 +118,6 @@ export default function App() {
 
         <DesktopNavbar />
 
-
         <main className={styles.main} style={fullScreen ? { width: '100%', height: '100%', alignItems: 'flex-start', borderRadius: 0 } : {}}>
 
           {fullScreen ? <FullScreenNavbar /> : <FixedArea />}

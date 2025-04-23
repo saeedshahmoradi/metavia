@@ -29,12 +29,13 @@
   text-align: center;
   font-weight: 900;
   background-color: #fff;
-  background: linear-gradient( 90deg, #fff 40%, #8b8a8a 50%, #fff 60% );
+  background: linear-gradient(90deg, #fff 40%, #8b8a8a 50%, #fff 60%);
   background-size: 300% 100%;
   background-clip: text;
   color: transparent;
   animation: shine 9s 1 5s;
 }
+
 
 @keyframes shine {
   0% {

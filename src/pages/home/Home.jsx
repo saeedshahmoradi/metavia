@@ -6,6 +6,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { Helmet } from 'react-helmet-async';
+import ParticlesBackground from '../../components/particlesBackground/ParticlesBackground';
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       </Helmet>
 
       <div style={{ perspective: '400px', height: '100%' }}>
+
         <motion.div className={`${styles.container} ${fullScreen ? 'fullScreen_page_container' : 'page_container'}`}
           style={{ transformStyle: 'preserve-3d' }}
           initial={{ rotateX: -130 }}
@@ -31,6 +33,11 @@ export default function Home() {
           exit={{ rotateX: 130, transformOrigin: '0 bottom 0' }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
+
+          {/* START TEST */}
+          <ParticlesBackground />
+          {/* END TEST */}
+
           {(fullScreen || window.innerWidth < 992) && <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />}
 
           <h1 className={styles.teamName}>{team.name}</h1>
