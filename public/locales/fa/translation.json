@@ -2,7 +2,9 @@
   "blog": {
     "title": "{{title}} | بلاگ - متاویا",
     "metaDescriptionLoading": "مطلبی درباره «{{title}}» را بخوانید و با نکات، آموزش‌ها و تجربیات مرتبط با این موضوع آشنا شوید",
-    "metaDescription": "{{description}}"
+    "metaDescription": "{{description}}",
+    "backButton": "بلاگ ها",
+    "footer": "نوشته شده توسط متاویا | طراحی سایت، برنامه‌نویسی اپلیکیشن و سئو حرفه‌ای"
   },
 
   "blogs": {
@@ -104,7 +106,8 @@
     "about": { "sectionTitle": "درباره من" },
     "skills": {"sectionTitle": "مهارت ها"},
     "portfolio": { "sectionTitle": "نمونه کارها" },
-    "certificates": {"sectionTitle": "گواهینامه ها"}
+    "certificates": {"sectionTitle": "گواهینامه ها"},
+    "backButton": "اعضای تیم"
   },
 
   "app": {

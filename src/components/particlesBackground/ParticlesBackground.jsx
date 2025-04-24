@@ -16,10 +16,10 @@ export default function ParticlesBackground() {
       init={particlesInit}
       options={{
         background: {
-          color: { value: "transparent" }, // پس‌زمینه شفاف
+          color: { value: "transparent" },
         },
         fullScreen: { enable: false },
-        // fpsLimit: 60,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onHover: { enable: true, mode: "repulse" },
@@ -30,11 +30,9 @@ export default function ParticlesBackground() {
           },
         },
         particles: {
-          // color: { value: "#ffffff" },
-          color: { value: "#f0f8ff" },
+          color: { value: '#999999' },
           links: {
-            // color: "#ffffff",
-            color: "#f0f8ff",
+            color: "#999999",
             distance: 120,
             enable: true,
             opacity: 0.4,

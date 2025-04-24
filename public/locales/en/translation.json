@@ -2,7 +2,9 @@
   "blog": {
     "title": "{{title}} | Blog - Metavia",
     "metaDescriptionLoading": "Read the full blog post about \"{{title}}\" to explore insights and tips.",
-    "metaDescription": "{{description}}"
+    "metaDescription": "{{description}}",
+    "backButton": "Blogs",
+    "footer": "Authored by Metavia — Specialists in Website Design, Mobile App Development, and Professional SEO"
   },
 
   "blogs": {
@@ -104,7 +106,8 @@
     "about": { "sectionTitle": "About Me" },
     "skills": {"sectionTitle": "Skills"},
     "portfolio": { "sectionTitle": "Portfolio" },
-    "certificates": {"sectionTitle": "Certificates"}
+    "certificates": {"sectionTitle": "Certificates"},
+    "backButton": "Members"
   },
 
   "app": {

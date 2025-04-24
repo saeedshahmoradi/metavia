@@ -9,6 +9,7 @@ import AppContext from '../../contexts/AppContext';
 import { Helmet } from 'react-helmet-async';
 import DOMPurify from 'dompurify';
 import { extractTextFromHTML, stringToTitle } from '../../utils/utils';
+import BackButton from '../../components/backButton/BackButton';
 
 
 export default function Blog() {
@@ -58,19 +59,32 @@ export default function Blog() {
       >
         {isLoading ? <Loading /> :
           <div className={styles.blog_container}>
-            <img className={styles.blogImage} src={blog.photo ?? '/asstes/images/noImage.jpg'} alt={blog.title} />
-            <div className={styles.blogContent_container}>
-              <h2 className={`${styles.blogTitle} h3`}>{blog.title}</h2>
 
-              <div className={`${language === 'fa' ? 'IranSans-font' : 'calibri-font'}  desc`}
+            <BackButton to={`/${language}/blogs`} title={t("blog.backButton")} />
+
+            <img className={styles.blogImage} src={blog.photo ?? '/asstes/images/noImage.jpg'} 
+            alt={`${language === 'fa' ? 'تصویر بلاگ' : 'Blog image'}: ${blog.title}`} />
+
+            <article className={styles.article}>
+              <header>
+                <h1 className={`${styles.blogTitle} h3`}>{blog.title}</h1>
+              </header>
+
+              <section className={`${language === 'fa' ? 'IranSans-font' : 'calibri-font'} desc`}
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}>
-              </div>
+              </section>
 
-              <div className={`${styles.blogInfos} desc`}>
-                <SlClock className='fs-6' />
-                {dateFormatter(blog.created_at)}
-              </div>
-            </div>
+              <footer className={styles.blogDetails}>
+                <div className='mb-1'>
+                  <SlClock className={`${language === 'fa' ? 'ms-2' : 'me-2'}`} />
+                  {dateFormatter(blog.created_at)}
+                </div>
+                <hr className='my-2' />
+                <p>{t("blog.footer")}</p>
+              </footer>
+
+            </article>
+
           </div>
         }
       </motion.div>
