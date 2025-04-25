@@ -26,7 +26,7 @@ export default function Home() {
       <div style={{ perspective: '400px', height: '100%' }}>
 
         <motion.div className={`${styles.container} ${fullScreen ? 'fullScreen_page_container' : 'page_container'}`}
-          style={{ transformStyle: 'preserve-3d', position: 'relative' }}
+          style={{ transformStyle: 'preserve-3d' }}
           initial={{ rotateX: -130 }}
           animate={{ rotateX: 0, transformOrigin: '0 0 0' }}
           // animate={{ rotateX: [-130, 10, -5, 0], transformOrigin: '0 0 0' }}

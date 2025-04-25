@@ -3,7 +3,7 @@
     "title": "{{title}} | بلاگ - متاویا",
     "metaDescriptionLoading": "مطلبی درباره «{{title}}» را بخوانید و با نکات، آموزش‌ها و تجربیات مرتبط با این موضوع آشنا شوید",
     "metaDescription": "{{description}}",
-    "backButton": "بلاگ ها",
+    "backButton": "وبلاگ",
     "footer": "نوشته شده توسط متاویا | طراحی سایت، برنامه‌نویسی اپلیکیشن و سئو حرفه‌ای"
   },
 
@@ -120,7 +120,7 @@
     "members": "اعضای تیم",
     "portfolio": "نمونه کارها",
     "contactUs": "تماس با ما",
-    "blogs": "بلاگ ها",
+    "blogs": "وبلاگ",
     "fullScreen": "تمام صفحه",
     "smallMode": "حالت کوچک"
   }
