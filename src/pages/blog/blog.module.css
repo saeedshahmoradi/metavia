@@ -26,7 +26,11 @@
   text-align: center;
 }
 
-.blogDetails {
+.blogBody ul{
+  list-style-type: disc;
+}
+
+.blogFooter {
   font-size: 0.8rem;
   margin-top: 50px;
   color: var(--light);
@@ -48,7 +52,7 @@
 }
 
 @media (min-width: 768px) {
-  .blogDetails {
+  .blogFooter {
     font-size: 0.9rem;
   }
 }

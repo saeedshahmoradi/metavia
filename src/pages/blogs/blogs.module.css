@@ -13,6 +13,7 @@
 
 .card:hover .image{
   scale: 1.04;
+  filter: contrast(140%);
 }
 
 .image {

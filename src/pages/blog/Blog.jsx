@@ -62,19 +62,19 @@ export default function Blog() {
 
             <BackButton to={`/${language}/blogs`} title={t("blog.backButton")} />
 
-            <img className={styles.blogImage} src={blog.photo ?? '/asstes/images/noImage.jpg'} 
-            alt={`${language === 'fa' ? 'تصویر بلاگ' : 'Blog image'}: ${blog.title}`} />
+            <img className={styles.blogImage} src={blog.photo ?? '/asstes/images/noImage.jpg'}
+              alt={`${language === 'fa' ? 'تصویر بلاگ' : 'Blog image'}: ${blog.title}`} />
 
             <article className={styles.article}>
               <header>
                 <h1 className={`${styles.blogTitle} h3`}>{blog.title}</h1>
               </header>
 
-              <section className={`${language === 'fa' ? 'IranSans-font' : 'calibri-font'} desc`}
+              <section className={` ${styles.blogBody} ${language === 'fa' ? 'IranSans-font' : 'calibri-font'} desc`}
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}>
               </section>
 
-              <footer className={styles.blogDetails}>
+              <footer className={styles.blogFooter}>
                 <div className='mb-1'>
                   <SlClock className={`${language === 'fa' ? 'ms-2' : 'me-2'}`} />
                   {dateFormatter(blog.created_at)}
