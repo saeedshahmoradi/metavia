@@ -12,7 +12,7 @@ function FixedArea() {
 
   return (
     <section className={styles.fixed_area}>
-      <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />
+      <img className={styles.logo} src={team.photo ?? "/logo512.png"} alt={team.name} />
       <strong className={styles.groupName}>{team.name}</strong>
       <strong className={styles.shortDescription}>{team.jobTitle}</strong>
       <div className={styles.social_container}>

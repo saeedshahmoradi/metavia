@@ -38,7 +38,7 @@ export default function Home() {
           <ParticlesBackground />
           {/* END TEST */}
 
-          {(fullScreen || window.innerWidth < 992) && <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />}
+          {(fullScreen || window.innerWidth < 992) && <img className={styles.logo} src={team.photo ?? "/logo512.png"} alt={team.name} />}
 
           <h1 className={styles.teamName}>{team.name}</h1>
 

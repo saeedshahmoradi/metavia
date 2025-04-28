@@ -40,7 +40,7 @@ const MobileOffcanvas = memo(({ show, closeOffcanvas }) => {
       </Offcanvas.Header>
       <Offcanvas.Body className={styles.offcanvasBody}>
         <div className={styles.intro}>
-          <img className={styles.logo} src={team.photo ?? "/assets/images/noProfile.gif"} alt={team.name} />
+          <img className={styles.logo} src={team.photo ?? "/logo512.png"} alt={team.name} />
           <strong className='h3 text-light mt-3'>{team.name}</strong>
           <strong className={`${styles.description} textMuted text-center mt-1`}>{team.jobTitle}</strong>
         </div>
