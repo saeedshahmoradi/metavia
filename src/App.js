@@ -123,7 +123,7 @@ export default function App() {
           {fullScreen ? <FullScreenNavbar /> : <FixedArea />}
 
           <section className={styles.animatedArea} style={fullScreen ? { width: '100%', height: '100%', borderRadius: 0 } : {}}>
-
+            
             <GiHamburgerMenu className={styles.hamburger}
               style={i18n.language === 'fa' ? { left: '10px' } : { right: '10px' }}
               onClick={() => setisShowingOffcanvas(true)} />

@@ -23,7 +23,7 @@ export default function Blog() {
   useEffect(() => {
     const blogController = new AbortController();
     axiosRequest.get(`/blogs/${slug}/?lang=${language}`, { signal: blogController.signal })
-      .then(res => { setBlog(res.data); console.log(res.data) })
+      .then(res => setBlog(res.data))
       .catch(err => { if (err?.response?.status === 404) navigateTo('/') })
       .finally(() => setIsLoading(false));
     return () => blogController.abort();
@@ -57,6 +57,7 @@ export default function Blog() {
         animate={{ y: ['-100%', '0', '-30%', '0', '-15%', '0', '-3%', '0'], rotateZ: [-10, 10, -6, 4, -2, 1, 0, 0], transition: { duration: 1.3, ease: 'easeInOut' } }}
         exit={{ rotateZ: 90, transformOrigin: '0 0 -200px', opacity: [1, 1, 1, 0.5, 0], transition: { duration: 0.7, ease: 'easeIn' } }}
       >
+        
         {isLoading ? <Loading /> :
           <div className={styles.blog_container}>
 
