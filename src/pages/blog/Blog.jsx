@@ -1,5 +1,5 @@
 import styles from './blog.module.css';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import axiosRequest from '../../services/axios/axiosRequest';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -71,7 +71,7 @@ export default function Blog() {
                 <h1 className={`${styles.blogTitle} h3`}>{blog.title}</h1>
               </header>
 
-              <section className={` ${styles.blogBody} ${language === 'fa' ? 'IranSans-font' : 'calibri-font'} desc`}
+              <section className={` ${styles.blogBody} ${language === 'fa' ? 'IranSans-font' : 'calibri-font'} lightDesc`}
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.description) }}>
               </section>
 

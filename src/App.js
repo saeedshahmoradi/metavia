@@ -2,7 +2,7 @@ import { useRoutes, useLocation } from 'react-router-dom';
 import styles from './app.module.css';
 import DesktopNavbar from './components/desktopNavbar/DesktopNavbar';
 import routes from './routes';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import FixedArea from './components/fixedArea/FixedArea';
 import { useEffect, useState } from 'react';
 import MobileOffcanvas from './components/mobileOffCanvas/MobileOffcanvas';
@@ -28,7 +28,8 @@ export default function App() {
   const [isShowingOffcanvas, setisShowingOffcanvas] = useState(false);
   const [team, setTeam] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [fullScreen, setFullScreen] = useState(false);
+  // const [fullScreen, setFullScreen] = useState(false);
+  const [fullScreen, setFullScreen] = useState(window.innerWidth < 768 ? true : false);
   const { t, i18n } = useTranslation();
 
 

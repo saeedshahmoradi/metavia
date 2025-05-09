@@ -20,6 +20,8 @@
   animation: containerAnim 1s forwards ease-out;
   background-color: var(--darkCharcoal);
   transition: all 1s;
+
+  padding: 0;
 }
 
 .fullScreenContainer {

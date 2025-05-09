@@ -1,4 +1,9 @@
 {
+  "app": {
+    "title": "Metavia - Creative Web & App Development",
+    "metaDescription": "Metavia delivers creative web design and mobile apps, offering smart software solutions tailored to both individuals and businesses."
+  },
+
   "blog": {
     "title": "{{title}} | Blog - Metavia",
     "metaDescriptionLoading": "Read the full blog post about \"{{title}}\" to explore insights and tips.",
@@ -61,7 +66,29 @@
   "home": {
     "title": "Metavia - Creative Web & App Development",
     "metaDescription": "Metavia delivers creative web design and mobile apps, offering smart software solutions tailored to both individuals and businesses.",
-    "teamDescription": "Website and Application Development"
+    "hero": {
+      "teamDescription": "Website and Application Development",
+      "teamSlogan": "Digital Transformation for Your Business",
+      "heroButton": "Get a Free Consultation"
+    },
+    "programming": {
+      "sectionLabel": "Custom-Built Website and Application"
+    },
+    "responsive": {
+      "sectionLabel": "Fully Responsive Design"
+    },
+    "otherFeatures": {
+      "sectionLabel": "Additional Features"
+    },
+    "services": {
+      "sectionTitle": "Our Services"
+    },
+    "faq": {
+      "sectionTitle": "Frequently Asked Questions"
+    },
+    "footer": {
+      "copyright": "Metavia - Web & Mobile App Design and Development."
+    }
   },
 
   "members": {
@@ -104,15 +131,10 @@
       "phone": "Phone"
     },
     "about": { "sectionTitle": "About Me" },
-    "skills": {"sectionTitle": "Skills"},
+    "skills": { "sectionTitle": "Skills" },
     "portfolio": { "sectionTitle": "Portfolio" },
-    "certificates": {"sectionTitle": "Certificates"},
+    "certificates": { "sectionTitle": "Certificates" },
     "backButton": "Members"
-  },
-
-  "app": {
-    "title": "Metavia - Creative Web & App Development",
-    "metaDescription": "Metavia delivers creative web design and mobile apps, offering smart software solutions tailored to both individuals and businesses."
   },
 
   "navbar": {

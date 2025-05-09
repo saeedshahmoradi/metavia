@@ -1,5 +1,5 @@
 import styles from './resume.module.css';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import axiosRequest from '../../services/axios/axiosRequest';
@@ -66,9 +66,9 @@ export default function Resume() {
                   {resume.photo && <img className={styles.profilePhoto} src={resume.photo} alt={resume.full_name} />}
 
                   <div className='d-flex flex-column justify-content-between'>
-                    <div className={`text-center ${language === 'fa' ? 'text-sm-end' : 'text-sm-start'}`}>
-                      <h2 className={`${styles.fullName} h5 mt-2 mb-3`}>{resume.full_name}</h2>
-                      <h3 className={styles.role}>{resume.role}</h3>
+                    <div className={`d-flex flex-column text-center ${language === 'fa' ? 'text-sm-end' : 'text-sm-start'}`}>
+                      <strong className={`${styles.fullName} mt-2 mb-3`}>{resume.full_name}</strong>
+                      <strong className={styles.role}>{resume.role}</strong>
                     </div>
                     <div className='d-none d-sm-flex gap-3 mt-3'>
                       {resume.linkedin && <a href={resume.linkedin}><FaLinkedin className={styles.social_icon} /></a>}
@@ -116,7 +116,7 @@ export default function Resume() {
                   <section>
                     <SectionTitle title={t("resume.about.sectionTitle")} className='mb-4' />
                     <div className={language === 'fa' ? styles.abouteMe_wrapper_fa : styles.abouteMe_wrapper_en}>
-                      <p className='desc'>{resume.summary}</p>
+                      <p className='lightDesc'>{resume.summary}</p>
                     </div>
                   </section>
                 }

@@ -20,8 +20,12 @@
 }
 
 .languageBtn{
-  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
   height: 35px;
+  padding: 0 !important;
 }
 
 .offcanvasBody {
@@ -50,9 +54,9 @@
 .mobileNavUl a {
   display: block;
   text-align: center;
-  line-height: 45px;
-  height: 45px;
-  font-size: 1.2rem;
+  line-height: 50px;
+  height: 50px;
+  font-size: 1rem;
   color: var(--white);
 
   border-bottom: 1px dotted gray;
@@ -64,7 +68,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .social_icon {

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import styles from './blogs.module.css';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import axiosRequest from '../../services/axios/axiosRequest';
 import Loading from '../../components/loading/Loading';
 import AppContext from '../../contexts/AppContext';

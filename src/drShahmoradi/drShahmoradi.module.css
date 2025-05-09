@@ -9,20 +9,20 @@
   margin: 0 auto;
   min-height: 100vh;
   font-family: IranSans;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 /* START Contact Form Section */
 .contact_form {
   display: flex;
   flex-direction: column;
-  row-gap: 1.5rem;
+  row-gap: 1.4rem;
   width: 100%;
 }
 
 .contact_form ::placeholder {
   color: rgb(103, 102, 102);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .fields_container {
@@ -81,7 +81,7 @@
 
 .errorMessage {
   color: #f94869;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 400;
   height: 15px;
   margin-top: 5px;

@@ -1,0 +1,33 @@
+.marquee_container {
+  width: 100%;
+  overflow: hidden;
+  /* position: relative; */
+}
+
+.marquee_track {
+  display: flex;
+  width: max-content;
+  gap: 40px;
+}
+
+.marquee_item {
+  flex-shrink: 0;
+}
+
+.marquee_image {
+  object-fit: cover;
+  display: block;
+  width: 85vw;
+}
+
+@media (min-width: 576px) {
+  .marquee_image{
+    width: 45vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee_image{
+    width: 30vw;
+  }
+}

@@ -34,7 +34,8 @@ const MobileOffcanvas = memo(({ show, closeOffcanvas }) => {
       <Offcanvas.Header className={styles.offcanvasHeader}>
         <IoCloseSharp className={styles.closeBtn} onClick={closeOffcanvas} />
         <Button className={styles.languageBtn} variant='outline-light' onClick={toggleLanguage}
-          style={{ fontFamily: i18n.language === 'fa' ? 'calibri' : 'IranSans' }}>
+          style={i18n.language === 'en' ?
+            { font: '17px "IranSans"' } : {font : '16px "calibri"'}}>
           {i18n.language === 'fa' ? 'English' : 'فارسی'}
         </Button>
       </Offcanvas.Header>

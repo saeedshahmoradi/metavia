@@ -16,6 +16,14 @@
   font-weight: 700;
 }
 
+/* Recoleta Alt */
+@font-face {
+  font-family: recoleta;
+  src: url('/public/assets/fonts/Recoleta\ Alt\ Bold.otf');
+  font-weight: 700;
+}
+
+/* IranSans */
 @font-face {
   font-family: IranSans;
   src: url("../../public/assets/fonts/IRANSansXFaNum-Regular.woff2");

@@ -13,6 +13,8 @@
   border-radius: 15px;
   position: relative;
   margin-top: 30px;
+
+  font-size: 0.9rem;
 }
 
 .profilePhoto {
@@ -28,18 +30,18 @@
 }
 
 .fullName {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--white);
 }
 
 .role {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--light);
   font-weight: 400;
 }
 
 .social_icon {
-  font-size: 1.5rem;
+  font-size: 24px;
   transition: 0.3s;
 }
 
@@ -49,6 +51,7 @@
 
 .memberDetail {
   display: flex;
+  /* flex-wrap: wrap; */
   gap: 10px;
 }
 
@@ -171,7 +174,7 @@
   flex: 1;
   color: var(--muted);
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 3px;
 }
 
@@ -183,7 +186,7 @@
   color: var(--light);
   flex: 2;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 20px;
   border-radius: 10px;
 }

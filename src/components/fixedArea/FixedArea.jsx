@@ -8,12 +8,12 @@ import AppContext from '../../contexts/AppContext';
 
 function FixedArea() {
 
-  const { team } = useContext(AppContext);
+  const { team, language } = useContext(AppContext);
 
   return (
     <section className={styles.fixed_area}>
       <img className={styles.logo} src={team.photo ?? "/logo512.png"} alt={team.name} />
-      <strong className={styles.groupName}>{team.name}</strong>
+      <strong className={styles.teamName}>{team.name}</strong>
       <strong className={styles.shortDescription}>{team.jobTitle}</strong>
       <div className={styles.social_container}>
         <a href={team.instagram} target='_blank' rel='noreferrer noopener'><AiFillInstagram className={styles.social_icon} /></a>

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import styles from './portfolio.module.css';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import { useContext, useEffect, useRef, useState } from 'react';

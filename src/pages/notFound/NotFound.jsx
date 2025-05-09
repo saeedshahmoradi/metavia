@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import styles from './notFound.module.css';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';

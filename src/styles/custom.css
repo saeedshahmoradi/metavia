@@ -18,7 +18,7 @@
 .cardTitle{
   font-weight: 500;
   color: #ddd;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .page_container, .fullScreen_page_container {
@@ -37,10 +37,16 @@
   color: var(--white);
 }
 
-.desc {
+.lightDesc {
   line-height: 1.5;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--light);
+}
+
+.darkDesc{
+  line-height: 1.5;
+  font-size: 1rem;
+  color: var(--darkCharcoal);
 }
 
 /* START Data recieve from backend and should be set with DangerouslySetInnerHTML */
@@ -67,6 +73,7 @@
   border: 1px solid #606060;
   padding: 8px 10px;
 }
+
 
 @media (min-width: 576px){
   #blog_table{ white-space: wrap; }
@@ -100,10 +107,6 @@
 @media (min-width: 1200px) {
   .title {
     font-size: 2rem;
-  }
-
-  .desc {
-    font-size: 1.1rem;
   }
 
   .fullScreen_page_container {

@@ -32,13 +32,13 @@
 }
 
 .fullName {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   margin: 20px 0 8px;
   color: var(--white);
 }
 
 .role {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--light);
   font-weight: 400;
   margin-top: 10px;

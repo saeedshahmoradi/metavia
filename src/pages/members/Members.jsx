@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import styles from './members.module.css';
 import { useContext, useEffect, useState } from 'react';
 import axiosRequest from '../../services/axios/axiosRequest';

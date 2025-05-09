@@ -44,7 +44,7 @@
 .menuLabel { 
   color: var(--white);
   white-space: nowrap;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .fullScreenNavUl > li:hover .menuIcon {

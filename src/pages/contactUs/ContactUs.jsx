@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import styles from './contactUs.module.css';
 import PageTitle from '../../components/pageTitle/PageTitle';
 import { useFormik } from 'formik';
@@ -109,17 +109,17 @@ export default function Contact() {
                   <div className={styles.contactWay_container}>
                     <div className={styles.contactIcon_container}><FaLocationDot className='fs-3 textDarkCharcoal' /></div>
                     <p className='d-none d-sm-block mt-2 textGold'>{t("contact.city")}</p>
-                    <p className='desc'>{team.city}</p>
+                    <p className='lightDesc'>{team.city}</p>
                   </div>
                   <div className={styles.contactWay_container}>
                     <div className={styles.contactIcon_container}><IoIosMail className='fs-3 textDarkCharcoal' /></div>
                     <p className='d-none d-sm-block mt-2 textGold'>{t("contact.email")}</p>
-                    <a className='desc' href={`mailto:${team.email}`}>{team.email}</a>
+                    <a className='lightDesc' href={`mailto:${team.email}`}>{team.email}</a>
                   </div>
                   <div className={styles.contactWay_container}>
                     <div className={styles.contactIcon_container}><MdPhone className='fs-4 textDarkCharcoal' /></div>
                     <p className='d-none d-sm-block mt-2 textGold'>{t("contact.phone")}</p>
-                    <a className='desc' style={{direction:'ltr'}} href={`tel:${team.phone}`}>{formatPhoneNumber(team.phone)}</a>
+                    <a className='lightDesc' style={{direction:'ltr'}} href={`tel:${team.phone}`}>{formatPhoneNumber(team.phone)}</a>
                   </div>
                 </section>
 
@@ -202,11 +202,11 @@ export default function Contact() {
             </>
           }
           <ToastContainer className="p-3" position={window.innerWidth < 576 ? "top-center" : 'middle-center'} style={{ zIndex: 4 }}>
-            <Toast className='bg-success text-light text-center desc' show={isShowingSuccessToast} autohide delay={6000} onClose={() => setIsShowingSuccessToast(false)}>
+            <Toast className='bg-success text-light text-center lightDesc' show={isShowingSuccessToast} autohide delay={6000} onClose={() => setIsShowingSuccessToast(false)}>
               <Toast.Body>{t("contact.form.api.success")}</Toast.Body>
             </Toast>
 
-            <Toast className='bg-danger text-light text-center desc' show={isShowingFailureToast} autohide delay={6000} onClose={() => setIsShowingFailureToast(false)}>
+            <Toast className='bg-danger text-light text-center lightDesc' show={isShowingFailureToast} autohide delay={6000} onClose={() => setIsShowingFailureToast(false)}>
               <Toast.Body>{t("contact.form.api.failure")}</Toast.Body>
             </Toast>
           </ToastContainer>
