@@ -39,12 +39,14 @@ export default function App() {
     if (location.pathname === '/') {
       setIsLoading(true);
       axios.get('https://api.db-ip.com/v2/free/self', { signal: countryController.signal })
-        .then((res) => {
+        .then((res) => {         
           const countryCode = res.data.countryCode;
           const defaultLang = ['IR', 'AF', 'TJ'].includes(countryCode) ? 'fa' : 'en';
           window.location.replace(`/${defaultLang}`);
         })
-        .catch(() => window.location.replace(`/en`))
+        .catch((err) => {
+          window.location.replace(`/en`);
+        })
         .finally(() => setIsLoading(false));
     }
     return (() => countryController.abort());
